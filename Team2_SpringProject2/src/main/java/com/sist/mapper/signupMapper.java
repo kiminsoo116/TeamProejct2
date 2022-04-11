@@ -21,7 +21,7 @@ import com.sist.vo.*;
  */
 public interface signupMapper {
 	
-	@Insert("INSERT INTO member VALUES(#{id},#{pwd},#{nic},#{name},#{addr1},#{addr2},#{email},#{tel},#{sex},#{birth},#{post},#{admin})")
+	@Insert("INSERT INTO member(id,pwd,nic,name,addr1,addr2,email,tel,sex,birth,post,admin) VALUES(#{id},#{pwd},#{nic},#{name},#{addr1},#{addr2},#{email},#{tel},#{sex},#{birth},#{post},#{admin})")
 	public void memberSignUp(memberVO vo);
 	
 	@Select("SELECT COUNT(*) FROM member WHERE id=#{id}")

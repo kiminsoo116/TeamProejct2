@@ -70,4 +70,18 @@
 		<put-attribute name="search_find" value="/WEB-INF/search/{1}.jsp" />
 	</definition>
 	
+	<!-- 마이페이지 -->
+	<definition name="mypage/*" template="/WEB-INF/mypage/main.jsp">
+		<put-attribute name="nav" value="/WEB-INF/inc/nav.jsp"/>
+		<put-attribute name="header" value="/WEB-INF/mypage/header.jsp"/>
+		<put-attribute name="aside" value="/WEB-INF/mypage/aside.jsp"/>
+		<put-attribute name="mycategory" value="/WEB-INF/mypage/{1}.jsp"/>
+	</definition>
+	<!-- 메인공지사항보드 -->
+	<definition name="mainboard/*" template="/WEB-INF/mainboard/main.jsp">
+		<put-attribute name="nav" value="/WEB-INF/inc/nav.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/mainboard/menu.jsp"/>
+		<put-attribute name="list" value="/WEB-INF/mainboard/{1}.jsp"/>
+	</definition>
+	
 </tiles-definitions>

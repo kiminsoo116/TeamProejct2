@@ -118,7 +118,7 @@ right:2%;
 		<br>
 		<div class="linefix">
 		<br>
-			비밀번호&nbsp;:&nbsp;<input type=text id="inputpwd" size=30 v-model="inputpwd">
+			비밀번호&nbsp;:&nbsp;<input type=password id="inputpwd" size=30 v-model="inputpwd">
 		</div>
 		<br>
 		<div class="linefix2">

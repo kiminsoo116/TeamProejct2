@@ -83,6 +83,7 @@ width: 300px;
 								</ul></li>
 							<li class="nav-item"><a class="nav-link" href="#">동아리</a></li>
 							<li class="nav-item"><a class="nav-link" href="#">모임</a></li>
+							<li class="nav-item"><a class="nav-link" href="../mainboard/main_go.do">공지사항/QnA</a></li>
 						</ul>
 						<div class="d-flex">
 						 <form action="../search/search_find.do" method="get" class="search-form">
