@@ -86,5 +86,12 @@
 		<put-attribute name="menu" value="/WEB-INF/mainboard/menu.jsp"/>
 		<put-attribute name="list" value="/WEB-INF/mainboard/{1}.jsp"/>
 	</definition>
+	<!--  동아리 게시판  -->
+	<definition name="board/*" template="/WEB-INF/puzzle/main.jsp">
+       <put-attribute name="nav" value="/WEB-INF/inc/nav.jsp"/>
+      <put-attribute name="aside" value="/WEB-INF/puzzle/aside.jsp"/>
+      <put-attribute name="content" value="/WEB-INF/board/{1}.jsp"/>      
+      <put-attribute name="footer" value="/WEB-INF/inc/footer.jsp"/>
+   </definition>
 	
 </tiles-definitions>
