@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="UTF-8"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +13,48 @@
 	crossorigin="anonymous">
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-<style type="text/css">	
+<style type="text/css">
+body{
+	padding: 0px;
+}
+
+.go-top {
+  position:fixed;
+  bottom: 0px;
+  right:0px;
+  padding:50px;
+  display:none;
+  cursor: pointer;
+}
+.go-top:after {
+  content: '▲';
+  color: #000;
+  /* position: absolute; 
+  bottom:80px;
+  left: 4500%;
+  font-size: 32px; */
+  display: inline-block;
+    
+    background-position: -150px -212px;
+    background-repeat: no-repeat;
+    vertical-align: top;
+    font-size: 32px;
+    
+}
+
+div, ul, li {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding:0;margin:0}
+a {text-decoration:none;}
+
+.quickmenu {position:absolute;width:110px;top:74.5%;margin-top:-50px;right:10px;background:#fff;}
+.quickmenu ul {position:relative;float:left;width:100%;display:inline-block;*display:inline;border:1px solid #ddd;}
+.quickmenu ul li {float:left;width:100%;border-bottom:1px solid #ddd;text-align:center;display:inline-block;*display:inline;}
+.quickmenu ul li a {position:relative;float:left;width:100%;height:30px;line-height:30px;text-align:center;color:#999;font-size:14.5pt;}
+.quickmenu ul li a:hover {color:#000;}
+.quickmenu ul li:last-child {border-bottom:0;}
+
+.content {position:relative;min-height:1000px;}
+
+
 .row1 {
 	height: 500px;
 	width: 100%;
@@ -87,17 +128,9 @@
 .card-img-top {
 	border-radius: 5px;
 	width: 220px;
-	height: 160px;
 }
 .card-title {
-font-family: Roboto;
-font-style: normal;
-font-weight: 600;
-font-size: 20px;
-
-line-height: 39px;
-
-color: #27243A;
+	font-family: 'Noto Sans KR', sans-serif;
 }
 strong{
 	left: -50px;
@@ -107,51 +140,59 @@ strong{
 	font-family: 'Noto Sans KR', sans-serif;
 }
 
-.go-top {
-  position:fixed;
-  bottom: 0px;
-  right:0px;
-  padding:50px;
-  display:none;
-  cursor: pointer;
-}
-.go-top:after {
-  content: '▲';
-  color: #000;
-  /* position: absolute; 
-  bottom:80px;
-  left: 4500%;
-  font-size: 32px; */
-  display: inline-block;
-    
-    background-position: -150px -212px;
-    background-repeat: no-repeat;
-    vertical-align: top;
-    font-size: 32px;
-    
+.cat-banner{
+	
+	margin: 0px auto;
+	margin-top: 20px;
+	margin-left: 100px;
 }
 
-div, ul, li {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding:0;margin:0}
-a {text-decoration:none;}
+.cat-line{
 
-.quickmenu {position:absolute;width:105px;top:50%;margin-top:200px;right:10px;background:#fff;}
-.quickmenu ul {position:relative;float:left;width:100%;display:inline-block;*display:inline;border:1px solid #ddd;}
-.quickmenu ul li {float:left;width:100%;border-bottom:1px solid #ddd;text-align:center;display:inline-block;*display:inline;}
-.quickmenu ul li a {position:relative;float:left;width:100%;height:30px;line-height:30px;text-align:center;color:#999;font-size:13.5pt;}
-.quickmenu ul li a:hover {color:#000;}
-.quickmenu ul li:last-child {border-bottom:0;}
+width: 1350.01px;
+height: 0px;
+margin-top:20px;
+
+border: 1px solid rgba(0, 0, 0, 0.31);
+transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
+
+
+}
 
 </style>
 </head>
 <body>
-	<section class="container">
-		<!-- 로그인 되었을때만 나타나게 해야함 -->
-		<div class="row1">
-			<h3 class="title1">
-				<strong>내가 가입한 퍼즐</strong>
-			</h3>
+
+<!-- <div class="w3-sidebar w3-bar-block">
+  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-blue">요리 / 제조</a>
+  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-blue">아웃도어 / 여행</a>
+  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-blue">운동 / 스포츠</a>
+  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-blue">인문학 / 책 / 글</a>
+  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-blue">업무 / 직무</a>
+  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-blue">외국 / 언어</a>
+  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-blue">문화 / 공연 / 축제</a>
+  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-blue">음악 / 악기</a>
+  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-blue">공예 / 만들기</a>
+  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-blue">댄스 / 무용</a>
+  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-blue">봉사활동</a>
+  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-blue">사교 / 인맥</a>
+  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-blue">차 / 오토바이</a>
+  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-blue">사진 / 영상</a>
+  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-blue">게임 / 오락</a>
+  <a href="#" class="w3-bar-item w3-button w3-hover-none w3-hover-text-blue">반려동물</a>
+</div> -->
+
+
+<section class="container">
+	<img class="cat-banner" src="../resources/img/카테고리배너.png">
+	<div class="cat-line"></div>
+	
+	<div class="row1">
+			
 			<div class="box1">
-				<img class="lefter1" src="../resources/img/화살표.png">
+				
 				<div class="overflow1">
 					<c:forEach begin="1" end="12" step="1">
 						<div class="oneRank1">
@@ -166,16 +207,14 @@ a {text-decoration:none;}
 						</div>
 					</c:forEach>
 				</div>
-				<img class="righter1" src="../resources/img/화살표2.png">
+				
 			</div>
 		</div>
-
+		
 		<div class="row1">
-			<h3 class="title1">
-				<strong>마감 임박 퍼즐</strong>
-			</h3>
+			
 			<div class="box2">
-				<img class="lefter2" src="../resources/img/화살표.png">
+				
 				<div class="overflow2">
 					<c:forEach begin="1" end="12" step="1">
 						<div class="oneRank2">
@@ -190,16 +229,14 @@ a {text-decoration:none;}
 						</div>
 					</c:forEach>
 				</div>
-				<img class="righter2" src="../resources/img/화살표2.png">
+				
 			</div>
 		</div>
 
 		<div class="row1">
-			<h3 class="title1">
-				<strong>인기 퍼즐</strong>
-			</h3>
+			
 			<div class="box3">
-				<img class="lefter3" src="../resources/img/화살표.png">
+				
 				<div class="overflow3">
 					<c:forEach begin="1" end="12" step="1">
 						<div class="oneRank3">
@@ -214,92 +251,46 @@ a {text-decoration:none;}
 						</div>
 					</c:forEach>
 				</div>
-				<img class="righter3" src="../resources/img/화살표2.png">
+				
 			</div>
 		</div>
 
 		<div class="row1">
-			<h3 class="title1">
-				<strong>추천 동아리</strong>
-			</h3>
+			
 			<div class="box4">
-				<img class="lefter4" src="../resources/img/화살표.png">
 				
 				<div class="overflow4">
-					<c:forEach var="vo" items="${list }" >
+					<c:forEach begin="1" end="12" step="1">
 						<div class="oneRank4">
-							<img src="${vo.cl_poster }" class="card-img-top">
+							<img src="../resources/img/poster2.png" class="card-img-top">
 							<div class="card-body">
-								<h5 class="card-title">${vo.cl_name }</h5>
+								<h5 class="card-title">동아리 이름</h5>
 								<br>
-								<p class="card-text">${vo.cl_content }</p>
+								<p class="card-text">동아리 간단 설명</p>
 								<a href="#" class="btn btn-primary"
-									style="background-color: #3a65ef">동아리 구경하기</a>
+									style="background-color: #3a65ef">퍼즐 참가하기</a>
 							</div>
 						</div>
 					</c:forEach>
 				</div>
 				
-				<img class="righter4" src="../resources/img/화살표2.png">
 			</div>
 		</div>
-		
-		
-		
+
+
+
 		<div class="go-top"></div>
 		<div class="quickmenu">
-		  <ul>
-		    <li><a href="#">공지사항</a></li>
-		    <li><a href="#">Q&A</a></li>
-		    <li><a href="#">1:1질문</a></li>
-		  </ul>
+  			<ul>
+    			<li><a href="#">공지사항</a></li>
+    			<li><a href="#">1:1문의</a></li>
+    			<li><a href="#">Q&A</a></li>
+  			</ul>
 		</div>
 		
-		
-		          <script type="text/javascript"
+		<script type="text/javascript"
 			src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 		<script>
-		$(document).ready(function() {
-			$('.overflow1').slick({
-				prevArrow : $(".lefter1"),
-				nextArrow : $(".righter1"),
-				infinite : true,
-				speed : 300,
-				slidesToShow : 4,
-				slidesToScroll : 3
-			});
-		});
-		$(document).ready(function() {
-			$('.overflow2').slick({
-				prevArrow : $(".lefter2"),
-				nextArrow : $(".righter2"),
-				infinite : true,
-				speed : 300,
-				slidesToShow : 4,
-				slidesToScroll : 3
-			});
-		});
-		$(document).ready(function() {
-			$('.overflow3').slick({
-				prevArrow : $(".lefter3"),
-				nextArrow : $(".righter3"),
-				infinite : true,
-				speed : 300,
-				slidesToShow : 4,
-				slidesToScroll : 3
-			});
-		});
-		$(document).ready(function() {
-			$('.overflow4').slick({
-				prevArrow : $(".lefter4"),
-				nextArrow : $(".righter4"),
-				infinite : true,
-				speed : 300,
-				slidesToShow : 4,
-				slidesToScroll : 3
-			});
-		});
-			
 			$(function(){
 
 				  //Scroll event
@@ -324,10 +315,13 @@ a {text-decoration:none;}
 				  });
 				});
 			
-		
+			
+			
+			
+			
 		</script>
-		
-		
-	</section>
+
+</section>
+
 </body>
 </html>

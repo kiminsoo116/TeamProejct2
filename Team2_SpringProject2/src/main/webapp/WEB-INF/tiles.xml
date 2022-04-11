@@ -36,5 +36,35 @@
  	<definition name="member/*" extends="member">
 		<put-attribute name="sign_up" value="/WEB-INF/member/{1}.jsp"/>
 	</definition> 
+	
+	<definition name="category" template="/WEB-INF/category/main.jsp">
+    	<put-attribute name="nav" value="/WEB-INF/inc/nav.jsp"/>
+		<put-attribute name="aside" value="/WEB-INF/category/aside.jsp"/>
+		<put-attribute name="category" value="/WEB-INF/category/cooklist.jsp"/>		
+		<put-attribute name="footer" value="/WEB-INF/inc/footer.jsp"/>
+		
+	</definition>
+	
+	<definition name="category/*" extends="category">
+		<put-attribute name="category" value="/WEB-INF/category/{1}.jsp" />
+	</definition>
+	
+	<definition name="club" template="/WEB-INF/club/main.jsp">
+		<put-attribute name="club" value="/WEB-INF/club/club.jsp"/>		
+	</definition>
+	
+	<definition name="club/*" extends="club">
+		<put-attribute name="club" value="/WEB-INF/club/{1}.jsp" />
+	</definition>
+	
+	<definition name="search" template="/WEB-INF/search/main.jsp">
+    	<put-attribute name="nav" value="/WEB-INF/inc/nav.jsp"/>
+		<put-attribute name="search_find" value="/WEB-INF/search/search_find.jsp"/>		
+		<put-attribute name="footer" value="/WEB-INF/inc/footer.jsp"/>
+		
+	</definition>
+	<definition name="search/*" extends="search">
+		<put-attribute name="search_find" value="/WEB-INF/search/{1}.jsp" />
+	</definition>
    
 </tiles-definitions>
