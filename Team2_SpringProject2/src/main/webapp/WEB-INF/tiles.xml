@@ -29,6 +29,9 @@
    <definition name="food/*" extends="puzzle">
 		<put-attribute name="content" value="/WEB-INF/food/{1}.jsp"/>   
    </definition>
+     <definition name="puzzlecreate/*" extends="puzzle">
+		<put-attribute name="content" value="/WEB-INF/puzzlecreate/{1}.jsp"/>   
+   </definition>
    <!-- 로그인회원가입 -->
    		<definition name="member" template="/WEB-INF/member/main.jsp">
 		<put-attribute name="sign_up" value="/WEB-INF/member/sign_up.jsp"/>

@@ -126,9 +126,6 @@ left:45%;
              <input type=button class="btn btn-sm btn-primary"
               value="검색" v-on:click="find()">
 	           </div>
-	           <div class="box2">
-	           <input type="checkbox" name="fs" value="N">가게이름
-	           <input type="checkbox" name="fs" value="S">음식종류
 	           </div>
          </div>
 </div>
