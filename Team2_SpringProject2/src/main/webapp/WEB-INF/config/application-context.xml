@@ -28,5 +28,8 @@
       p:order="2"/>
     
     <mvc:annotation-driven/>
+     
+    <bean id="multipartResolver"
+       class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 
 </beans>
