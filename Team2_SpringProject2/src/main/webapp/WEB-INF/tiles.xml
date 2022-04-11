@@ -36,5 +36,7 @@
  	<definition name="member/*" extends="member">
 		<put-attribute name="sign_up" value="/WEB-INF/member/{1}.jsp"/>
 	</definition> 
-   
+   	<!-- Ajax 단독 실행 -->
+   	<definition name="galendar/puzzle/ajax" template="/WEB-INF/galendar/puzzle.jsp">
+   	</definition>
 </tiles-definitions>
