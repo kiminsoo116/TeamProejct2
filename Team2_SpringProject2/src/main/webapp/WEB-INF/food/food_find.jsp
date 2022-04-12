@@ -197,6 +197,9 @@ left:45%;
      
        </div>
 	<script>
+	var cl = ${cl};
+	console.log("http://localhost:8080/puzzle/"+cl+"/food/find_vue.do");
+	
 	new Vue({
 	el:'.container',
 	data:{
@@ -213,7 +216,7 @@ left:45%;
     // data:{"page":1,"ss":'강남'}
 	mounted:function(){
 		let _this=this;
-		axios.get("http://localhost:8080/web/food/find_vue.do",{
+		axios.get("http://localhost:8080/puzzle/"+cl+"/food/find_vue.do",{
 			params:{
 				page:_this.curpage,
     			ss:_this.ss
@@ -232,7 +235,7 @@ left:45%;
 	methods:{
 		find:function(){
 			this.curpage=1;
-			axios.get("http://localhost:8080/web/food/find_vue.do",{
+			axios.get("http://localhost:8080/puzzle/"+cl+"/food/find_vue.do",{
     			params:{
     				page:this.curpage,
         			ss:this.ss
@@ -250,7 +253,7 @@ left:45%;
 		},
 		prev:function(){
 			this.curpage=this.curpage>1?this.curpage-1:this.curpage;
-			axios.get("http://localhost:8080/web/food/find_vue.do",{
+			axios.get("http://localhost:8080/puzzle/"+cl+"/food/find_vue.do",{
     			params:{
     				page:this.curpage,
         			ss:this.ss
@@ -268,7 +271,7 @@ left:45%;
 		},
 		next:function(){
 			this.curpage=this.curpage<this.totalpage?this.curpage+1:this.curpage;
-			axios.get("http://localhost:8080/web/food/find_vue.do",{
+			axios.get("http://localhost:8080/puzzle/"+cl+"/food/find_vue.do",{
     			params:{
     				page:this.curpage,
         			ss:this.ss
@@ -287,7 +290,7 @@ left:45%;
 		// ?no=1
 		food_detail:function(no){
 			//alert("no="+no)
-			axios.get("http://localhost:8080/web/food/detail_vue.do",{
+			axios.get("http://localhost:8080/puzzle/"+cl+"/food/detail_vue.do",{
     			params:{
     				no:no
     			}
