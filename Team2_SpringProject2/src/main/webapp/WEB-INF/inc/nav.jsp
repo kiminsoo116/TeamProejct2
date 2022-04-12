@@ -98,7 +98,7 @@ width: 300px;
 			
 							<c:if test="${sessionScope.id==null }">
                   <button class="btn btn-primary"
-                     style="width: 70%; margin-left: 30px; margin-right: 10px;" ><a href="/member/log_in_move.do">로그인</a></button>
+                     style="width: 70%; margin-left: 30px; margin-right: 10px;" ><a href="../member/log_in_move.do">로그인</a></button>
                   <button class="btn btn-primary" style="width: 70%;"><a href="/member/sign_up.do">회원가입</a></button>
                	  </c:if>
                   <c:if test="${sessionScope.id!=null }">
