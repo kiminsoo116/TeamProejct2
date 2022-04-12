@@ -13,7 +13,7 @@ public class SearchRestController {
       @Autowired
       private searchDAO dao;
       
-      @RequestMapping(value="search/search_find_vue.do",produces="text/plain;charset=utf-8")
+      @RequestMapping(value="/web/search/search_find_vue.do",produces="text/plain;charset=utf-8")
       public String search_find(String fd,int page)
       {
     	  String result="";
