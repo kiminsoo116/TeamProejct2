@@ -136,5 +136,16 @@ public class memberDAO {
 		
 		return grade;
 	}
+
+	public void clubJoin(HttpSession session, int cl) {
+		String id = (String)session.getAttribute("id");
+		mapper.clubJoin(id,cl);
+	}
+
+	public void cancelJoin(HttpSession session, int cl) {
+		String id = (String)session.getAttribute("id");
+		mapper.cancelJoin(id,cl);
+	}
+
 	
 }

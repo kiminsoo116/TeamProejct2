@@ -22,11 +22,11 @@
 								<div class="accordion-body" style="text-align:center;">
 									<c:if test="${grade==0}">
 										<strong>가입되지 않은 회원입니다.</strong>
-										<button class="btn btn-primary" style="width: 100%;margin-top:20px">가입신청</button>
+										<button type="button" class="btn btn-primary" style="width: 100%;margin-top:20px" onclick="join()">가입신청</button>
 									</c:if>
 									<c:if test="${grade==4}">
 										<strong>가입승인 대기중입니다.</strong>
-										<button class="btn btn-primary" style="width: 100%;margin-top:20px">가입취소</button>
+										<button type="button" class="btn btn-primary" style="width: 100%;margin-top:20px" onclick="cancel()">가입취소</button>
 									</c:if>
 									<c:if test="${1<=grade && grade<4}">
 										<strong>${sessionScope.id}</strong>&nbsp;&nbsp;
@@ -47,7 +47,7 @@
 						aria-current="page" href="/puzzle/${cl}/main.do"> <span data-feather="home"></span>
 							메인
 					</a></li>
-					<c:if test="${grade>0 && grade<=4}">
+					<c:if test="${grade>0 && grade<=3}">
 					<li class="nav-item"><a class="nav-link" href="/puzzle/${cl}/board/list.do">
 						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
 	  					<path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
@@ -102,7 +102,7 @@
 							</svg>  회원관리
 						</a></li>
 					</c:if>
-				<li class="nav-item"><a class="nav-link" href="../puzzlecreate/create.do"> 
+				<li class="nav-item"><a class="nav-link" href="/puzzle/${cl}/puzzlecreate/create.do"> 
 						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shift" viewBox="0 0 16 16">
 	  					<path d="M7.27 2.047a1 1 0 0 1 1.46 0l6.345 6.77c.6.638.146 1.683-.73 1.683H11.5v3a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-3H1.654C.78 10.5.326 9.455.924 8.816L7.27 2.047zM14.346 9.5 8 2.731 1.654 9.5H4.5a1 1 0 0 1 1 1v3h5v-3a1 1 0 0 1 1-1h2.846z"/>
 						</svg> 모임생성
@@ -112,3 +112,15 @@
 			</div>
 		</nav>
 	</div>
+	<script>
+		function join(){
+			if(confirm('가입신청을 하시겠습니까?')){
+				location.href="dojoin.do";
+			}
+		}
+		function cancel(){
+			if(confirm('가입신청을 취소 하시겠습니까?')){
+				location.href="canceljoin.do";
+			}
+		}
+	</script>

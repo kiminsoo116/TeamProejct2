@@ -49,6 +49,7 @@ public class FoodRestController {
 			   arr.add(obj); // 배열에 추가 [{},{},{},{}....]
 			   i++;
 		   }
+		   System.out.println(arr.toJSONString());
 		   return arr.toJSONString();
 	   }
 	  

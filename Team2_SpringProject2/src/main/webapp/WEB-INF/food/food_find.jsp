@@ -197,9 +197,6 @@ left:45%;
      
        </div>
 	<script>
-	var cl = ${cl};
-	console.log("http://localhost:8080/puzzle/"+cl+"/food/find_vue.do");
-	
 	new Vue({
 	el:'.container',
 	data:{
@@ -230,10 +227,12 @@ left:45%;
 			_this.find_list=res.data;
 			_this.curpage=res.data[0].curpage;
 			_this.totalpage=res.data[0].totalpage;
+			console.log(_this.find_list);
 		})
 	},
 	methods:{
 		find:function(){
+			
 			this.curpage=1;
 			axios.get("http://localhost:8080/puzzle/"+cl+"/food/find_vue.do",{
     			params:{

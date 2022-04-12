@@ -1,6 +1,7 @@
 package com.sist.mapper;
 import java.util.*;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -48,4 +49,10 @@ public interface signupMapper {
 	
 	@Select("SELECT CL_RANK FROM grade WHERE id=#{id} AND cl_no=#{cl}")
 	public Integer ismember(@Param("id") String id,@Param("cl") int cl);
+
+	@Insert("INSERT INTO grade values(4,#{id},#{cl})")
+	public void clubJoin(@Param("id")String id,@Param("cl") int cl);
+
+	@Delete("DELETE FROM grade WHERE id=#{id} AND cl_no=#{cl}")
+	public void cancelJoin(@Param("id")String id,@Param("cl") int cl);
 }
