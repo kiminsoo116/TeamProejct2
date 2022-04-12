@@ -15,21 +15,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sist.dao.GalendarDAO;
+import com.sist.dao.memberDAO;
 import com.sist.vo.GalendarPuzzleVO;
 import com.sist.vo.KeywordVO;
 
 @Controller
+@RequestMapping("/puzzle/{cl}/galendar/")
 public class GalendarController {
 	@Autowired
 	private GalendarDAO dao;
+	@Autowired
+	private memberDAO member;
 
-	@GetMapping("galendar/list.do")
-	public String galendar_list(Model model, HttpServletRequest request) {
+	@GetMapping("list.do")
+	public String galendar_list(Model model, HttpServletRequest request,@PathVariable int cl,HttpSession session) {
+		int grade =member.ismember(session, cl);
+		model.addAttribute("grade",grade);
+		model.addAttribute("cl",cl);
+		
 		String strYear = request.getParameter("year");
 		String strMonth = request.getParameter("month");
 
@@ -105,8 +114,12 @@ public class GalendarController {
 		return "galendar/list";
 	}
 
-	@GetMapping("galendar/puzzle.do")
-	public String galendar_puzzle(int p_no, int cl_no, Model model) {
+	@GetMapping("puzzle.do")
+	public String galendar_puzzle(int p_no, int cl_no, Model model,@PathVariable int cl,HttpSession session) {
+		
+		int grade =member.ismember(session, cl);
+		model.addAttribute("grade",grade);
+		model.addAttribute("cl",cl);
 
 		Map map = new HashMap();
 		map.put("p_no", p_no);
@@ -151,9 +164,13 @@ public class GalendarController {
 		return "galendar/puzzle/ajax";
 	}
 	
-	@PostMapping(value = "galendar/puzzle_insert.do")
+	@PostMapping(value = "puzzle_insert.do")
 	@ResponseBody
-	public String galendat_puzzle_insert(int p_no,HttpSession session) {
+	public String galendat_puzzle_insert(Model model,int p_no,HttpSession session,@PathVariable int cl) {
+		
+		int grade =member.ismember(session, cl);
+		model.addAttribute("grade",grade);
+		model.addAttribute("cl",cl);
 		
 		String result="";
 		

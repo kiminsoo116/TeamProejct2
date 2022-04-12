@@ -22,21 +22,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.sist.dao.GalleryBoardDAO;
+import com.sist.dao.memberDAO;
 import com.sist.vo.GalleryBoardVO;
 
 @Controller
+@RequestMapping("/puzzle/{cl}/gallery/")
 public class GalleryBoardController {
 	@Autowired
 	private GalleryBoardDAO dao;
+	@Autowired
+	private memberDAO member;
 
-	@GetMapping("gallery/list.do")
-	public String gallery_list(String page, Model model) {
+	@GetMapping("list.do")
+	public String gallery_list(String page, Model model,@PathVariable int cl,HttpSession session) {
+		
+		int grade =member.ismember(session, cl);
+		model.addAttribute("grade",grade);
+		model.addAttribute("cl",cl);
 		int cl_no = 1;
 		if (page == null)
 			page = "1";
@@ -74,15 +83,22 @@ public class GalleryBoardController {
 		return "gallery/list";
 	}
 
-	@GetMapping("gallery/insert.do")
-	public String gallery_insert() {
+	@GetMapping("insert.do")
+	public String gallery_insert(Model model, @PathVariable int cl,HttpSession session) {
+		int grade =member.ismember(session, cl);
+		model.addAttribute("grade",grade);
+		model.addAttribute("cl",cl);
 
 		return "gallery/insert";
 	}
 
-	@PostMapping("gallery/insert_ok.do")
-	public String gallery_insert_ok(GalleryBoardVO vo, HttpSession session) {
+	@PostMapping("insert_ok.do")
+	public String gallery_insert_ok(Model model,@PathVariable int cl,HttpSession session,GalleryBoardVO vo) {
 
+		int grade =member.ismember(session, cl);
+		model.addAttribute("grade",grade);
+		model.addAttribute("cl",cl);
+		
 		int cl_no = 1;
 		String id = (String) session.getAttribute("id");
 
@@ -125,9 +141,13 @@ public class GalleryBoardController {
 		return "redirect:list.do";
 	}
 
-	@GetMapping("gallery/detail.do")
-	public String gallery_detail(int b_no, Model model, HttpServletRequest request) {
+	@GetMapping("detail.do")
+	public String gallery_detail(@PathVariable int cl,HttpSession session,int b_no, Model model, HttpServletRequest request) {
 
+		
+		int grade =member.ismember(session, cl);
+		model.addAttribute("grade",grade);
+		model.addAttribute("cl",cl);
 		GalleryBoardVO vo = dao.galleryBoardDetailData(b_no);
 
 		if (vo.getB_filecount() != 0) {
@@ -158,8 +178,12 @@ public class GalleryBoardController {
 		return "gallery/detail";
 	}
 
-	@GetMapping("gallery/download.do")
-	public void databoard_download(String fn, HttpServletResponse response) throws IOException {
+	@GetMapping("download.do")
+	public void databoard_download(Model model,@PathVariable int cl,HttpSession session,String fn, HttpServletResponse response) throws IOException {
+		
+		int grade =member.ismember(session, cl);
+		model.addAttribute("grade",grade);
+		model.addAttribute("cl",cl);
 		// Cookie 값을 전송해줘야해서 response를 사용
 		// 1. header 전송 => 다운로드창 열어준다
 		response.setHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode(fn, "UTF-8"));
@@ -180,8 +204,11 @@ public class GalleryBoardController {
 		bos.close();
 	}
 
-	@GetMapping("gallery/update.do")
-	public String gallery_update(int no, Model model) {
+	@GetMapping("update.do")
+	public String gallery_update(@PathVariable int cl,HttpSession session,int no, Model model) {
+		int grade =member.ismember(session, cl);
+		model.addAttribute("grade",grade);
+		model.addAttribute("cl",cl);
 
 		GalleryBoardVO vo = dao.galleryBoardDetailData(no);
 
@@ -208,8 +235,11 @@ public class GalleryBoardController {
 		return "gallery/update";
 	}
 
-	@PostMapping("gallery/update_ok.do")
-	public String gallery_update_ok(GalleryBoardVO vo) {
+	@PostMapping("update_ok.do")
+	public String gallery_update_ok(Model model,@PathVariable int cl,HttpSession session,GalleryBoardVO vo) {
+		int grade =member.ismember(session, cl);
+		model.addAttribute("grade",grade);
+		model.addAttribute("cl",cl);
 		List<MultipartFile> list = vo.getFiles();
 		GalleryBoardVO gvo = dao.galleryBoardDetailData(vo.getB_no());
 		
@@ -244,9 +274,13 @@ public class GalleryBoardController {
 		return "redirect:detail.do?b_no=" + vo.getB_no();
 	}
 
-	@PostMapping("gallery/file_delete.do")
+	@PostMapping("file_delete.do")
 	@ResponseBody
-	public String gallery_file_del(String fn, String fs, int b_no) {
+	public String gallery_file_del(Model model,@PathVariable int cl,HttpSession session,String fn, String fs, int b_no) {
+		
+		int grade =member.ismember(session, cl);
+		model.addAttribute("grade",grade);
+		model.addAttribute("cl",cl);
 		
 		String result="";
 
@@ -297,15 +331,22 @@ public class GalleryBoardController {
 		return result;
 	}
 
-	@RequestMapping("gallery/delete_ok.do")
-	public String gallery_delete_ok(int no) {
+	@RequestMapping("delete_ok.do")
+	public String gallery_delete_ok(Model model,@PathVariable int cl,HttpSession session,int no) {
+		int grade =member.ismember(session, cl);
+		model.addAttribute("grade",grade);
+		model.addAttribute("cl",cl);
 		dao.galleryBoardDelete(no);
 
 		return "redirect:list.do";
 	}
 
-	@PostMapping("gallery/find.do")
-	public String gallery_find(String[] fs, String ss, Model model) {
+	@PostMapping("find.do")
+	public String gallery_find(@PathVariable int cl,HttpSession session,String[] fs, String ss, Model model) {
+		
+		int grade =member.ismember(session, cl);
+		model.addAttribute("grade",grade);
+		model.addAttribute("cl",cl);
 		if (fs != null) {
 			Map map = new HashMap();
 			map.put("fsArr", fs);

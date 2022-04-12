@@ -1,11 +1,15 @@
 package com.sist.dao;
 
-import com.sist.mapper.*;
-import com.sist.vo.*;
-import java.util.*;
+import java.util.Map;
+import java.util.StringTokenizer;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.sist.mapper.signupMapper;
+import com.sist.vo.memberVO;
 
 @Repository
 public class memberDAO {
@@ -115,10 +119,21 @@ public class memberDAO {
 		}
 	}
 
-	public Integer ismember(String id, int cl) {
-		System.out.println("dao,"+id+","+cl+".");
-		Integer grade = mapper.ismember(id,cl);
-		System.out.println("@@@@@@@@@@@@@@@@@@"+grade);
+	public Integer ismember(HttpSession session, int cl) {
+		
+		String id = (String)session.getAttribute("id");
+		System.out.println(id);
+		if(id==null) {
+			id="";
+		}
+		Integer tmp = mapper.ismember(id,cl);
+		int grade =0;
+		if (tmp==null) {
+			System.out.println("널이다");
+		}else {
+			grade=tmp;
+		}
+		
 		return grade;
 	}
 	

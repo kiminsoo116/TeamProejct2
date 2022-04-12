@@ -47,7 +47,7 @@ width: 300px;
 			style="border: 0.5px solid rgb(183, 181, 181)">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 				<div class="container-fluid">
-					<a class="navbar-brand" href="../main/main.do"> <img src="../img/화살표2.png"
+					<a class="navbar-brand" href="/main/main.do"> <img src="../img/화살표2.png"
 						alt="" width="30" height="24"
 						class="d-inline-block align-text-top"> Puzzle
 					</a>
@@ -64,7 +64,7 @@ width: 300px;
 								role="button" data-bs-toggle="dropdown" aria-expanded="false">
 									카테고리 </a>
 								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-									<li><a class="dropdown-item" href="../category/cooklist.do">요리 / 제조</a></li>
+									<li><a class="dropdown-item" href="/category/cooklist.do">요리 / 제조</a></li>
 									<li><a class="dropdown-item" href="/category/triplist.do">아웃도어 / 여행</a></li>
 									<li><a class="dropdown-item" href="/category/sportslist.do">운동 / 스포츠</a></li>
 									<li><a class="dropdown-item" href="/category/humanitylist.do">인문학 / 책 / 글</a></li>
@@ -86,26 +86,21 @@ width: 300px;
 							<li class="nav-item"><a class="nav-link" href="/mainboard/main_go.do">공지사항/QnA</a></li>
 						</ul>
 						<div class="d-flex" style="width:25vw">
-						 <form action="../search/search_find.do" method="get" class="search-form">
+						 <form action="/search/search_find.do" method="get" class="search-form">
 							<input type="text" id="search-bar" name="ss"
 							placeholder="검색할 내용을 입력해 주세요." style="margin-right:180px;height:40px;" >
 							<input type="submit" value="검색" class="btn btn-sm btn-primary" style="height:40px;">
 						</form> 
-						
-						
-					    
-						
-			
 							<c:if test="${sessionScope.id==null }">
                   <button class="btn btn-primary"
-                     style="width: 70%; margin-left: 30px; margin-right: 10px;" ><a href="../member/log_in_move.do">로그인</a></button>
-                  <button class="btn btn-primary" style="width: 70%;"><a href="/member/sign_up.do">회원가입</a></button>
+                     style="width: 20%; margin-left: 30px; margin-right: 10px;" ><a href="/member/log_in_move.do">로그인</a></button>
+                  <button class="btn btn-primary" style="width: 20%;"><a href="/member/sign_up.do">회원가입</a></button>
                	  </c:if>
                   <c:if test="${sessionScope.id!=null }">
                   <button class="btn btn-primary" style="width: 40%%; margin-left: 10px;"><a href="/club/club.do">동아리 생성</a></button>
                   <button class="btn btn-primary"
-                     style="width: 20%; margin-left: 20px; margin-right: 10px;" ><a href="../member/log_out.do">로그아웃</a></button>
-                  <button class="btn btn-primary" style="width: 40%%;"><a href="../member/sign_up.do">마이페이지</a></button>
+                     style="width: 20%; margin-left: 20px; margin-right: 10px;" ><a href="/member/log_out.do">로그아웃</a></button>
+                  <button class="btn btn-primary" style="width: 40%%;"><a href="/member/sign_up.do">마이페이지</a></button>
                   
                   </c:if>
 						</div>

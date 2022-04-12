@@ -6,11 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../images/demo/food.css">
+<link rel="stylesheet" href="/resources/images/demo/food.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
 <script src="http://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="text/javascript">
+var cl=${cl};
+colsole.log(cl);
 let i=0;
 let gulist= [ "전체", "강서구", "양천구", "구로구", "마포구", "영등포구", "금천구",
 	    "은평구", "서대문구", "동작구", "관악구", "종로구", "중구", "용산구", "서초구", "강북구",
@@ -29,9 +31,9 @@ $(function(){
 				$('#yy').val(gulist[gu]);
 		for(let i=1;i<=25;i++)
 		{
-			$('#gu'+i).attr("src","../images/demo/map/gu_"+i+"_off.png")
+			$('#gu'+i).attr("src","/resources/images/demo/map/gu_"+i+"_off.png")
 		}
-		$(this).attr("src","../images/demo/map/gu_"+gu+"_on.png")
+		$(this).attr("src","/resources/images/demo/map/gu_"+gu+"_on.png")
 		
 		/* $.ajax({
 			type:'get',
@@ -110,9 +112,9 @@ left:45%;
 <div class="container">
 <div class="wrapper row2">
   <div id="a">
-    <img id="seoul_1" src="../images/demo/map/1111.png">
+    <img id="seoul_1" src="/resources/images/demo/map/1111.png">
     <c:forEach var="i" begin="1" end="25">
-     <img id="gu${i }" src="../images/demo/map/gu_${i }_off.png"
+     <img id="gu${i }" src="/resources/images/demo/map/gu_${i }_off.png"
       class="images" data-value="${i }"
      >
     </c:forEach>

@@ -110,7 +110,7 @@ right:2%;
 <body>
 <div class="fully">
 <div class="changearea">
-	<img class="illust" alt="" src="../resources/img/sign_up_.png">
+	<img class="illust" alt="" src="/resources/img/sign_up_.png">
 	<div class="formposition">
 		<h2>로그인</h2>
 		<div class="makePosition">
@@ -124,10 +124,10 @@ right:2%;
 		<div class="linefix2">
 		<br>
 		<div class="finding">
-		<a href="../member/movefind_id.do">아이디 찾기</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="../member/movefind_pwd.do">비밀번호 찾기</a>
+		<a href="/member/movefind_id.do">아이디 찾기</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/member/movefind_pwd.do">비밀번호 찾기</a>
 		</div>
 		<button class="submitBtn" id="loginBtn" value="loginBtn" v-on:click="loginBtn()" >로그인</button>
-		<button class="backBtn" id="backBtn" value="backBtn" ><a href="../main/main.do">취소하기</button>
+		<button class="backBtn" id="backBtn" value="backBtn" ><a href="/main/main.do">취소하기</button>
 		</div>
 	</div>
 </div>
@@ -142,7 +142,7 @@ right:2%;
 		},
 		methods:{
 			loginBtn:function(){
-				axios.get("http://localhost:8080/web/member/log_in.do",{
+				axios.get("http://localhost:8080/member/log_in.do",{
 					params:{
 						id:this.inputid,
 						pwd:this.inputpwd
@@ -156,7 +156,7 @@ right:2%;
 					alert('잘못된 비밀번호입니다.');	
 				}
 				else{
-					location.href="../member/log_in_ok.do";
+					location.href="/member/log_in_ok.do";
 				}
 				})
 			}

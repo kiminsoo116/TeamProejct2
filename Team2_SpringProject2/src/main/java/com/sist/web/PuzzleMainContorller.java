@@ -18,19 +18,9 @@ public class PuzzleMainContorller {
 	
 	@GetMapping("puzzle/{cl}/main.do")
 	public String puzzle_main(Model m, HttpSession session ,@PathVariable int cl ) {
-		String id = (String)session.getAttribute("id");
-		System.out.println(id);
-		if(id==null) {
-			id="";
-		}
-		Integer tmp = dao.ismember(id,cl);
-		int grade =0;
-		if (tmp==null) {
-			System.out.println("널이다");
-		}else {
-			grade=tmp;
-		}
+		int grade =dao.ismember(session, cl);
 		m.addAttribute("grade",grade);
+		m.addAttribute("cl",cl);
 		return "puzzle";
 	}
 }

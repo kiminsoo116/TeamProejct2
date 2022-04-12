@@ -20,7 +20,7 @@
         <c:forEach var="b" items="${list}">
         <tr style="text-align:center;">
             <th scope="row">${b.b_no }</th>
-            <td><a href="../board/detail.do?id=${b.b_no}" style="text-decoration: none;color:black;">${b.b_title}</a>&nbsp;<span style="color:#dddddd;">[1]</span></td>
+            <td><a href="detail.do?id=${b.b_no}" style="text-decoration: none;color:black;">${b.b_title}</a>&nbsp;<span style="color:#dddddd;">[1]</span></td>
             <td>${b.id}</td>
             <td><fmt:formatDate value="${b.b_regdate}" pattern="yyyy-MM-dd"/></td>
             <td>${b.b_hit}</td>
@@ -34,7 +34,7 @@
     <c:set var="endNum" value="${startNum+4<=totalpage?startNum+4:totalpage}"/>
     <h6 style="float: right;">&nbsp;&nbsp;${page} /${totalpage} pages</h6>
     <h6 style="float: right;"> 총 ${total} 게시물</h6>
-    <a href="../board/write.do"><button type="button" class="btn btn-secondary">글쓰기</button></a>
+    <a href="write.do"><button type="button" class="btn btn-secondary">글쓰기</button></a>
     
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
@@ -45,22 +45,22 @@
         </c:if>
         <c:if test="${startNum!=1}">
             <li class="page-item">
-            <a class="page-link" href="../board/list.do?p=${startNum-1}&q=${q}&t=${t}">Previous</a>
+            <a class="page-link" href="list.do?p=${startNum-1}&q=${q}&t=${t}">Previous</a>
             </li>
         </c:if>
             <c:forEach var="i" begin="0" end="4">
             <c:if test="${(startNum+i)<=totalpage}">
             <c:if test="${startNum+i==page}">
-            <li class="page-item active"><a class="page-link" href="../board/list.do?p=${startNum+i}&q=${q}&t=${t}">${startNum+i}</a></li>
+            <li class="page-item active"><a class="page-link" href="list.do?p=${startNum+i}&q=${q}&t=${t}">${startNum+i}</a></li>
             </c:if>
             <c:if test="${startNum+i!=page}">
-            <li class="page-item"><a class="page-link" href="../board/list.do?p=${startNum+i}&q=${q}&t=${t}">${startNum+i}</a></li>
+            <li class="page-item"><a class="page-link" href="list.do?p=${startNum+i}&q=${q}&t=${t}">${startNum+i}</a></li>
             </c:if>
             </c:if>
             </c:forEach>
             <c:if test="${endNum!=totalpage}">
             <li class="page-item">
-                <a class="page-link" href="../board/list.do?p=${endNum+1}&q=${q}&t=${t}">Next</a>
+                <a class="page-link" href="list.do?p=${endNum+1}&q=${q}&t=${t}">Next</a>
             </li>
             </c:if>
             <c:if test="${endNum==totalpage}">
