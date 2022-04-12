@@ -114,6 +114,12 @@ public class memberDAO {
 			return result;
 		}
 	}
-	
+
+	public Integer ismember(String id, int cl) {
+		System.out.println("dao,"+id+","+cl+".");
+		Integer grade = mapper.ismember(id,cl);
+		System.out.println("@@@@@@@@@@@@@@@@@@"+grade);
+		return grade;
+	}
 	
 }

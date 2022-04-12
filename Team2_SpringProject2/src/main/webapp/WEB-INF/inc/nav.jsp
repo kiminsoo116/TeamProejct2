@@ -65,31 +65,31 @@ width: 300px;
 									카테고리 </a>
 								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 									<li><a class="dropdown-item" href="../category/cooklist.do">요리 / 제조</a></li>
-									<li><a class="dropdown-item" href="../category/triplist.do">아웃도어 / 여행</a></li>
-									<li><a class="dropdown-item" href="../category/sportslist.do">운동 / 스포츠</a></li>
-									<li><a class="dropdown-item" href="../category/humanitylist.do">인문학 / 책 / 글</a></li>
-									<li><a class="dropdown-item" href="../category/worklist.do">업무 / 직무</a></li>
-									<li><a class="dropdown-item" href="../category/languagelist.do">외국 / 언어</a></li>
-									<li><a class="dropdown-item" href="../category/culturelist.do">문화 / 공연 / 축제</a></li>
-									<li><a class="dropdown-item" href="../category/musiclist.do">음악 / 악기</a></li>
-									<li><a class="dropdown-item" href="../category/makelist.do">공예 / 만들기</a></li>
-									<li><a class="dropdown-item" href="../category/dancelist.do">댄스 / 무용</a></li>
-									<li><a class="dropdown-item" href="../category/volunteerlist.do">봉사활동</a></li>
-									<li><a class="dropdown-item" href="../category/friendlist.do">사교 / 인맥</a></li>
-									<li><a class="dropdown-item" href="../category/carlist.do">차 / 오토바이</a></li>
-									<li><a class="dropdown-item" href="../category/photolist.do">사진 / 영상</a></li>
-									<li><a class="dropdown-item" href="../category/gamelist.do">게임 / 오락</a></li>
-									<li><a class="dropdown-item" href="../category/petlist.do">반려동물</a></li>
+									<li><a class="dropdown-item" href="/category/triplist.do">아웃도어 / 여행</a></li>
+									<li><a class="dropdown-item" href="/category/sportslist.do">운동 / 스포츠</a></li>
+									<li><a class="dropdown-item" href="/category/humanitylist.do">인문학 / 책 / 글</a></li>
+									<li><a class="dropdown-item" href="/category/worklist.do">업무 / 직무</a></li>
+									<li><a class="dropdown-item" href="/category/languagelist.do">외국 / 언어</a></li>
+									<li><a class="dropdown-item" href="/category/culturelist.do">문화 / 공연 / 축제</a></li>
+									<li><a class="dropdown-item" href="/category/musiclist.do">음악 / 악기</a></li>
+									<li><a class="dropdown-item" href="/category/makelist.do">공예 / 만들기</a></li>
+									<li><a class="dropdown-item" href="/category/dancelist.do">댄스 / 무용</a></li>
+									<li><a class="dropdown-item" href="/category/volunteerlist.do">봉사활동</a></li>
+									<li><a class="dropdown-item" href="/category/friendlist.do">사교 / 인맥</a></li>
+									<li><a class="dropdown-item" href="/category/carlist.do">차 / 오토바이</a></li>
+									<li><a class="dropdown-item" href="/category/photolist.do">사진 / 영상</a></li>
+									<li><a class="dropdown-item" href="/category/gamelist.do">게임 / 오락</a></li>
+									<li><a class="dropdown-item" href="/category/petlist.do">반려동물</a></li>
 								</ul></li>
 							<li class="nav-item"><a class="nav-link" href="#">동아리</a></li>
 							<li class="nav-item"><a class="nav-link" href="#">모임</a></li>
-							<li class="nav-item"><a class="nav-link" href="../mainboard/main_go.do">공지사항/QnA</a></li>
+							<li class="nav-item"><a class="nav-link" href="/mainboard/main_go.do">공지사항/QnA</a></li>
 						</ul>
-						<div class="d-flex">
+						<div class="d-flex" style="width:25vw">
 						 <form action="../search/search_find.do" method="get" class="search-form">
 							<input type="text" id="search-bar" name="ss"
-							placeholder="검색할 내용을 입력해 주세요." >
-							<input type="submit" value="검색" class="btn btn-sm btn-primary">
+							placeholder="검색할 내용을 입력해 주세요." style="margin-right:180px;height:40px;" >
+							<input type="submit" value="검색" class="btn btn-sm btn-primary" style="height:40px;">
 						</form> 
 						
 						
@@ -98,14 +98,14 @@ width: 300px;
 			
 							<c:if test="${sessionScope.id==null }">
                   <button class="btn btn-primary"
-                     style="width: 70%; margin-left: 20px; margin-right: 10px;" ><a href="../member/log_in_move.do">로그인</a></button>
-                  <button class="btn btn-primary" style="width: 70%;"><a href="../member/sign_up.do">회원가입</a></button>
+                     style="width: 70%; margin-left: 30px; margin-right: 10px;" ><a href="/member/log_in_move.do">로그인</a></button>
+                  <button class="btn btn-primary" style="width: 70%;"><a href="/member/sign_up.do">회원가입</a></button>
                	  </c:if>
                   <c:if test="${sessionScope.id!=null }">
-                  <button class="btn btn-primary" style="width: 70%; margin-left: 10px;"><a href="../club/club.do">동아리 생성</a></button>
+                  <button class="btn btn-primary" style="width: 40%%; margin-left: 10px;"><a href="/club/club.do">동아리 생성</a></button>
                   <button class="btn btn-primary"
-                     style="width: 70%; margin-left: 20px; margin-right: 10px;" ><a href="../member/log_out.do">로그아웃</a></button>
-                  <button class="btn btn-primary" style="width: 70%;"><a href="../member/sign_up.do">마이페이지</a></button>
+                     style="width: 20%; margin-left: 20px; margin-right: 10px;" ><a href="../member/log_out.do">로그아웃</a></button>
+                  <button class="btn btn-primary" style="width: 40%%;"><a href="../member/sign_up.do">마이페이지</a></button>
                   
                   </c:if>
 						</div>

@@ -146,7 +146,7 @@
 							<c:forEach begin="1" end="5" step="1">
 							<tr style="display: inline;">
 								<td>
-									<img src="../resources/img/poster2.png">
+									<img src="/resources/img/poster2.png">
 								</td>
 							</tr>
 							</c:forEach>

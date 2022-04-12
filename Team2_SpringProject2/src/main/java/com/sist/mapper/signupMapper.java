@@ -2,6 +2,7 @@ package com.sist.mapper;
 import java.util.*;
 
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import com.sist.vo.*;
@@ -44,4 +45,7 @@ public interface signupMapper {
 	
 	@Select("SELECT id FROM member WHERE name=#{name} AND email=#{email}")
 	public String findingIdByEmail(Map map);
+	
+	@Select("SELECT CL_RANK FROM grade WHERE id=#{id} AND cl_no=#{cl}")
+	public Integer ismember(@Param("id") String id,@Param("cl") int cl);
 }
