@@ -249,9 +249,9 @@ a {text-decoration:none;}
 		<div class="go-top"></div>
 		<div class="quickmenu">
 		  <ul>
-		    <li><a href="#">공지사항</a></li>
-		    <li><a href="#">Q&A</a></li>
-		    <li><a href="#">1:1질문</a></li>
+		    <li><a href="/mainboard/main_go.do">공지사항</a></li>
+		    <li><a href="/mainboard/main_go.do">Q&A</a></li>
+		    <li><a href="/mainboard/main_go.do">1:1질문</a></li>
 		  </ul>
 		</div>
 		

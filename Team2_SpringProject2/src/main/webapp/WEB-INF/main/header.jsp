@@ -15,7 +15,7 @@
 .wrap{
 	display: block;
 	position: relative;
-	margin: 0px auto;
+	left:0px;
 }
 
 .advertise img {
@@ -39,7 +39,7 @@ body {
 	height: 950px;
 	position: absolute;
 	top:300px;
-	left:-15px;
+	left:100px;
 	perspective: 1000px;
 	transform-style: preserve-3d;
 }
@@ -115,7 +115,7 @@ body {
 position:absolute;
 transform: rotate(90deg);
 top:280px;
-left:270px;
+left:300px;
 }
 .whitebox{
 position:absolute;
@@ -135,7 +135,7 @@ height:800px;
 .waves {
 
   position:relative;
-  top:-130px;
+  top:-145px;
   width: 100%;
   height:15vh;
   margin-bottom:-7px; /*Fix for safari gap*/

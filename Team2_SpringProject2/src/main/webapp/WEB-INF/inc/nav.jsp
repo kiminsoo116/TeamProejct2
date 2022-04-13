@@ -32,7 +32,10 @@ width: 230px;
 .d-flex{
 width: 300px;
 }
-
+.logoM{
+position:relative;
+top:-5px;
+}
 
 </style>
 <link
@@ -47,9 +50,9 @@ width: 300px;
 			style="border: 0.5px solid rgb(183, 181, 181)">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 				<div class="container-fluid">
-					<a class="navbar-brand" href="/main/main.do"> <img src="../img/화살표2.png"
-						alt="" width="30" height="24"
-						class="d-inline-block align-text-top"> Puzzle
+					<a class="navbar-brand" href="/main/main.do"> <img src="../resources/img/logo.png"
+						alt="" width="95" height="35"
+						class="logoM">
 					</a>
 					<button class="navbar-toggler" type="button"
 						data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -83,7 +86,7 @@ width: 300px;
 								</ul></li>
 							<li class="nav-item"><a class="nav-link" href="#">동아리</a></li>
 							<li class="nav-item"><a class="nav-link" href="#">모임</a></li>
-							<li class="nav-item"><a class="nav-link" href="/mainboard/main_go.do">공지사항/QnA</a></li>
+							<!-- <li class="nav-item"><a class="nav-link" href="/mainboard/main_go.do">공지사항/QnA</a></li> -->
 						</ul>
 						<div class="d-flex" style="width:25vw">
 						 <form action="/search/search_find.do" method="get" class="search-form">
