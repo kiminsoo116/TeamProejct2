@@ -41,11 +41,11 @@ public class GalleryBoardController {
 	private memberDAO member;
 
 	@GetMapping("list.do")
-	public String gallery_list(String page, Model model,@PathVariable int cl,HttpSession session) {
-		
-		int grade =member.ismember(session, cl);
-		model.addAttribute("grade",grade);
-		model.addAttribute("cl",cl);
+	public String gallery_list(String page, Model model, @PathVariable int cl, HttpSession session) {
+
+		int grade = member.ismember(session, cl);
+		model.addAttribute("grade", grade);
+		model.addAttribute("cl", cl);
 		int cl_no = 1;
 		if (page == null)
 			page = "1";
@@ -84,21 +84,21 @@ public class GalleryBoardController {
 	}
 
 	@GetMapping("insert.do")
-	public String gallery_insert(Model model, @PathVariable int cl,HttpSession session) {
-		int grade =member.ismember(session, cl);
-		model.addAttribute("grade",grade);
-		model.addAttribute("cl",cl);
+	public String gallery_insert(Model model, @PathVariable int cl, HttpSession session) {
+		int grade = member.ismember(session, cl);
+		model.addAttribute("grade", grade);
+		model.addAttribute("cl", cl);
 
 		return "gallery/insert";
 	}
 
 	@PostMapping("insert_ok.do")
-	public String gallery_insert_ok(Model model,@PathVariable int cl,HttpSession session,GalleryBoardVO vo) {
+	public String gallery_insert_ok(Model model, @PathVariable int cl, HttpSession session, GalleryBoardVO vo) {
 
-		int grade =member.ismember(session, cl);
-		model.addAttribute("grade",grade);
-		model.addAttribute("cl",cl);
-		
+		int grade = member.ismember(session, cl);
+		model.addAttribute("grade", grade);
+		model.addAttribute("cl", cl);
+
 		int cl_no = 1;
 		String id = (String) session.getAttribute("id");
 
@@ -142,12 +142,12 @@ public class GalleryBoardController {
 	}
 
 	@GetMapping("detail.do")
-	public String gallery_detail(@PathVariable int cl,HttpSession session,int b_no, Model model, HttpServletRequest request) {
+	public String gallery_detail(@PathVariable int cl, HttpSession session, int b_no, Model model,
+			HttpServletRequest request) {
 
-		
-		int grade =member.ismember(session, cl);
-		model.addAttribute("grade",grade);
-		model.addAttribute("cl",cl);
+		int grade = member.ismember(session, cl);
+		model.addAttribute("grade", grade);
+		model.addAttribute("cl", cl);
 		GalleryBoardVO vo = dao.galleryBoardDetailData(b_no);
 
 		if (vo.getB_filecount() != 0) {
@@ -156,12 +156,12 @@ public class GalleryBoardController {
 			List<String> sList = new ArrayList<String>(); // 파일크기
 			List<String> iList = new ArrayList<String>(); // 리얼패스에 저장된 이미지 출력
 			String path = "C:\\springDev\\springStudy\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Team2_SpringProject2\\resources\\uploadFileImages\\";
-							
+
 			StringTokenizer st = new StringTokenizer(vo.getB_filename(), ",");
 			while (st.hasMoreTokens()) {
 				String fn = st.nextToken();
 				fList.add(fn);
-				iList.add("../resources/uploadFileImages/" + fn);
+				iList.add("/resources/uploadFileImages/" + fn);
 			}
 			st = new StringTokenizer(vo.getB_filesize(), ",");
 			while (st.hasMoreTokens()) {
@@ -179,11 +179,12 @@ public class GalleryBoardController {
 	}
 
 	@GetMapping("download.do")
-	public void databoard_download(Model model,@PathVariable int cl,HttpSession session,String fn, HttpServletResponse response) throws IOException {
-		
-		int grade =member.ismember(session, cl);
-		model.addAttribute("grade",grade);
-		model.addAttribute("cl",cl);
+	public void databoard_download(Model model, @PathVariable int cl, HttpSession session, String fn,
+			HttpServletResponse response) throws IOException {
+
+		int grade = member.ismember(session, cl);
+		model.addAttribute("grade", grade);
+		model.addAttribute("cl", cl);
 		// Cookie 값을 전송해줘야해서 response를 사용
 		// 1. header 전송 => 다운로드창 열어준다
 		response.setHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode(fn, "UTF-8"));
@@ -205,10 +206,10 @@ public class GalleryBoardController {
 	}
 
 	@GetMapping("update.do")
-	public String gallery_update(@PathVariable int cl,HttpSession session,int no, Model model) {
-		int grade =member.ismember(session, cl);
-		model.addAttribute("grade",grade);
-		model.addAttribute("cl",cl);
+	public String gallery_update(@PathVariable int cl, HttpSession session, int no, Model model) {
+		int grade = member.ismember(session, cl);
+		model.addAttribute("grade", grade);
+		model.addAttribute("cl", cl);
 
 		GalleryBoardVO vo = dao.galleryBoardDetailData(no);
 
@@ -236,13 +237,13 @@ public class GalleryBoardController {
 	}
 
 	@PostMapping("update_ok.do")
-	public String gallery_update_ok(Model model,@PathVariable int cl,HttpSession session,GalleryBoardVO vo) {
-		int grade =member.ismember(session, cl);
-		model.addAttribute("grade",grade);
-		model.addAttribute("cl",cl);
+	public String gallery_update_ok(Model model, @PathVariable int cl, HttpSession session, GalleryBoardVO vo) {
+		int grade = member.ismember(session, cl);
+		model.addAttribute("grade", grade);
+		model.addAttribute("cl", cl);
 		List<MultipartFile> list = vo.getFiles();
 		GalleryBoardVO gvo = dao.galleryBoardDetailData(vo.getB_no());
-		
+
 		if (list == null) // 업로드가 안된 상태
 		{
 			dao.galleryBoardUpdate2(vo);
@@ -276,33 +277,34 @@ public class GalleryBoardController {
 
 	@PostMapping("file_delete.do")
 	@ResponseBody
-	public String gallery_file_del(Model model,@PathVariable int cl,HttpSession session,String fn, String fs, int b_no) {
-		
-		int grade =member.ismember(session, cl);
-		model.addAttribute("grade",grade);
-		model.addAttribute("cl",cl);
-		
-		String result="";
+	public String gallery_file_del(Model model, @PathVariable int cl, HttpSession session, String fn, String fs,
+			int b_no) {
+
+		int grade = member.ismember(session, cl);
+		model.addAttribute("grade", grade);
+		model.addAttribute("cl", cl);
+
+		String result = "";
 
 		// db에서 update해주면 될듯
 		GalleryBoardVO vo = dao.galleryBoardDetailData2(b_no);
-		String ss="";
-		String dd="";
-		
+		String ss = "";
+		String dd = "";
+
 		if (vo.getB_filecount() != 0) {
 			// 파일이 업로드가 되었다면
-			String s1="";
-			String s2="";
-			
+			String s1 = "";
+			String s2 = "";
+
 			StringTokenizer st = new StringTokenizer(vo.getB_filename(), ",");
-			while (st.hasMoreTokens()) { 
+			while (st.hasMoreTokens()) {
 				s1 = st.nextToken(); // st = wada.확장자
-				System.out.println("fn1:"+fn);
-				System.out.println("fs1:"+s1);
-				if (!(s1.equals(fn))) { // 삭제하고자 하는 fn값과 같지않으면 sl에 저장 
+				System.out.println("fn1:" + fn);
+				System.out.println("fs1:" + s1);
+				if (!(s1.equals(fn))) { // 삭제하고자 하는 fn값과 같지않으면 sl에 저장
 					ss += s1 + ",";
-					System.out.println("fn2:"+fn);
-					System.out.println("fs2:"+s1);
+					System.out.println("fn2:" + fn);
+					System.out.println("fs2:" + s1);
 				}
 			}
 			ss = ss.substring(0, ss.lastIndexOf(","));
@@ -310,11 +312,11 @@ public class GalleryBoardController {
 			map.put("b_no", b_no);
 			map.put("b_filename", ss);
 			dao.galleryFilenameDelete(map);
-			
+
 			st = new StringTokenizer(vo.getB_filesize(), ",");
 			while (st.hasMoreTokens()) {
 				s2 = st.nextToken();
-				if (s2!=fs) {
+				if (s2 != fs) {
 					dd += s2 + ",";
 				}
 			}
@@ -322,31 +324,31 @@ public class GalleryBoardController {
 			Map map2 = new HashMap();
 			map2.put("b_no", b_no);
 			map2.put("b_filesize", dd);
-			
+
 			dao.galleryFilesizeDelete(map2);
-			
-			result="GOOD";
+
+			result = "GOOD";
 		}
 
 		return result;
 	}
 
 	@RequestMapping("delete_ok.do")
-	public String gallery_delete_ok(Model model,@PathVariable int cl,HttpSession session,int no) {
-		int grade =member.ismember(session, cl);
-		model.addAttribute("grade",grade);
-		model.addAttribute("cl",cl);
+	public String gallery_delete_ok(Model model, @PathVariable int cl, HttpSession session, int no) {
+		int grade = member.ismember(session, cl);
+		model.addAttribute("grade", grade);
+		model.addAttribute("cl", cl);
 		dao.galleryBoardDelete(no);
 
 		return "redirect:list.do";
 	}
 
 	@PostMapping("find.do")
-	public String gallery_find(@PathVariable int cl,HttpSession session,String[] fs, String ss, Model model) {
-		
-		int grade =member.ismember(session, cl);
-		model.addAttribute("grade",grade);
-		model.addAttribute("cl",cl);
+	public String gallery_find(@PathVariable int cl, HttpSession session, String[] fs, String ss, Model model) {
+
+		int grade = member.ismember(session, cl);
+		model.addAttribute("grade", grade);
+		model.addAttribute("cl", cl);
 		if (fs != null) {
 			Map map = new HashMap();
 			map.put("fsArr", fs);

@@ -37,4 +37,8 @@ public interface GalendarMapper {
 	// 모임 insert
 	@Insert("INSERT INTO puzzlejoin VALUES(#{id},#{p_no})")
 	public void galendarPuzzleInsert(Map map);
+	
+	@Select("SELECT * FROM (SELECT * from puzzle WHERE p_date>SYSDATE) "
+			+ "WHERE rownum<=6 AND cl_no=#{cl_no} order by p_date asc")
+	public List<GalendarPuzzleVO> galendarMainListData(int cl_no);
 }

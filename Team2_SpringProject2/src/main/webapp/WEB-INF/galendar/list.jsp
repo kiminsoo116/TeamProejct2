@@ -100,7 +100,12 @@ $(function() {
 								<c:forEach var="vo" items="${pList }">
 									<c:if test="${vo.dbday==i }">
 										<div class="puzzletool">
-											<p style="float: left;" class="puzzlelist" data-value="${vo.p_no }" data-value2="${vo.cl_no }">[${vo.p_loc}]${vo.p_title }
+											<c:if test="${i>=strDay }">
+												<p style="float: left;" class="puzzlelist" data-value="${vo.p_no }" data-value2="${vo.cl_no }">[${vo.p_loc}]${vo.p_title }
+											</c:if>
+											<c:if test="${i<strDay }">
+												<p style="float: left;" data-value="${vo.p_no }" data-value2="${vo.cl_no }">[${vo.p_loc}]${vo.p_title }
+											</c:if>
 										</div>
 									</c:if>
 								</c:forEach></td>

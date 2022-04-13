@@ -41,4 +41,8 @@ public class GalendarDAO {
 	public int galendarPuzzleId(Map map) {
 		return mapper.galendarPuzzleId(map);
 	}
+
+	public List<GalendarPuzzleVO> galendarMainListData(int cl_no) {
+		return mapper.galendarMainListData(cl_no);
+	}
 }

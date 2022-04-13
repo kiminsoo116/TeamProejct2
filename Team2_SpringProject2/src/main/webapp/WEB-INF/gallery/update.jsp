@@ -9,10 +9,11 @@
 <style type="text/css">
 .insertdesign{	
 	margin: 0px auto;
-	width: 700px;
+	width: 800px;
 	border: 2px solid #fdbe51;
 	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
+	padding:20px;
 }
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>

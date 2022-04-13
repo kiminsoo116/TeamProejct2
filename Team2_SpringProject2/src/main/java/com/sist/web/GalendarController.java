@@ -34,13 +34,14 @@ public class GalendarController {
 	private memberDAO member;
 
 	@GetMapping("list.do")
-	public String galendar_list(Model model, HttpServletRequest request,@PathVariable int cl,HttpSession session) {
-		int grade =member.ismember(session, cl);
-		model.addAttribute("grade",grade);
-		model.addAttribute("cl",cl);
-		
+	public String galendar_list(Model model, HttpServletRequest request, @PathVariable int cl, HttpSession session) {
+		int grade = member.ismember(session, cl);
+		model.addAttribute("grade", grade);
+		model.addAttribute("cl", cl);
+
 		String strYear = request.getParameter("year");
 		String strMonth = request.getParameter("month");
+		String strDay = request.getParameter("day");
 
 		int cl_no = 1;
 
@@ -58,8 +59,8 @@ public class GalendarController {
 			System.out.println("모임 날짜" + sd);
 
 			String ti = vo.getP_title();
-			if (ti.length() > 15) {
-				ti = ti.substring(0, 15) + "...";
+			if (ti.length() > 8) {
+				ti = ti.substring(0, 8) + "...";
 			}
 			vo.setP_title(ti);
 			vo.setDbday(sd);
@@ -80,6 +81,9 @@ public class GalendarController {
 			strYear = sy;
 		if (strMonth == null)
 			strMonth = sm;
+		if (strDay == null)
+			strDay = sd;
+		System.out.println("오늘날짜=" + strDay);
 
 		// 정수형 변환
 		int year = Integer.parseInt(strYear);
@@ -110,16 +114,17 @@ public class GalendarController {
 		model.addAttribute("lastday", lastday[month - 1]);
 		model.addAttribute("strWeek", strWeek);
 		model.addAttribute("pList", pList);
+		model.addAttribute("strDay", strDay);
 
 		return "galendar/list";
 	}
 
 	@GetMapping("puzzle.do")
-	public String galendar_puzzle(int p_no, int cl_no, Model model,@PathVariable int cl,HttpSession session) {
-		
-		int grade =member.ismember(session, cl);
-		model.addAttribute("grade",grade);
-		model.addAttribute("cl",cl);
+	public String galendar_puzzle(int p_no, int cl_no, Model model, @PathVariable int cl, HttpSession session) {
+
+		int grade = member.ismember(session, cl);
+		model.addAttribute("grade", grade);
+		model.addAttribute("cl", cl);
 
 		Map map = new HashMap();
 		map.put("p_no", p_no);
@@ -127,7 +132,7 @@ public class GalendarController {
 
 		// 상세페이지
 		GalendarPuzzleVO pvo = dao.galendarDetailData(map);
-		
+
 		// 날짜 변환
 		Date date = pvo.getP_date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-d");
@@ -148,14 +153,14 @@ public class GalendarController {
 
 			list.add(kvo);
 		}
-		
+
 		Map map3 = new HashMap();
 		map3.put("p_no", p_no);
 		map3.put("p_head", pvo.getP_head());
-		
+
 		// 모집 총 인원수
-		int puzzlecount=dao.galendarPuzzleCount(map3);
-		
+		int puzzlecount = dao.galendarPuzzleCount(map3);
+
 		model.addAttribute("pvo", pvo);
 		model.addAttribute("dbdate", dbdate);
 		model.addAttribute("list", list);
@@ -163,35 +168,35 @@ public class GalendarController {
 
 		return "galendar/puzzle/ajax";
 	}
-	
+
 	@PostMapping(value = "puzzle_insert.do")
 	@ResponseBody
-	public String galendat_puzzle_insert(Model model,int p_no,HttpSession session,@PathVariable int cl) {
-		
-		int grade =member.ismember(session, cl);
-		model.addAttribute("grade",grade);
-		model.addAttribute("cl",cl);
-		
-		String result="";
-		
-		String id=(String)session.getAttribute("id");
-		
-		Map map=new HashMap();
+	public String galendat_puzzle_insert(Model model, int p_no, HttpSession session, @PathVariable int cl) {
+
+		int grade = member.ismember(session, cl);
+		model.addAttribute("grade", grade);
+		model.addAttribute("cl", cl);
+
+		String result = "";
+
+		String id = (String) session.getAttribute("id");
+
+		Map map = new HashMap();
 		map.put("id", id);
 		map.put("p_no", p_no);
-		
-		int idCheck=dao.galendarPuzzleId(map);
-		if(idCheck!=0) { 
+
+		int idCheck = dao.galendarPuzzleId(map);
+		if (idCheck != 0) {
 			// 모임에 가입된 상태
-			result ="ON";
+			result = "ON";
 			System.out.println(result);
 		} else {
 			// 모임에 가입 안된 상태
-			result ="OFF";
+			result = "OFF";
 			System.out.println(result);
 			dao.galendarPuzzleInsert(map);
 		}
-		
+
 		return result;
 	}
 }

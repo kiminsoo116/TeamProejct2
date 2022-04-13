@@ -26,5 +26,9 @@ public interface clubMapper {
 	  public clubVO clubMainData(int cl_no);
 	
 	 //3. 글쓰기 => 파일 업로드 
+
+	// 동아리 메인 정보 출력
+	@Select("SELECT * FROM CLUB WHERE cl_no=#{cl_no}")
+	public clubVO puzzleMainInfoData(int cl_no);
 	 
 }

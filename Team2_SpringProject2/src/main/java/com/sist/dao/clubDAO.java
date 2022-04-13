@@ -34,6 +34,8 @@ public class clubDAO {
 		   return mapper.clubMainData(cl_no);
 	   }
 	
-	
+	public clubVO puzzleMainInfoData(int cl_no) {
+		return mapper.puzzleMainInfoData(cl_no);
+	}
 
 }

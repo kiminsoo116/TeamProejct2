@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import com.sist.vo.Board2VO;
 import com.sist.vo.GalleryBoardVO;
 
 public interface GalleryBoardMapper {
@@ -87,4 +88,9 @@ public interface GalleryBoardMapper {
 			+ "WHERE b_no=#{b_no}")
 	public void galleryFilesizeDelete(Map map);
 	
+	@Select("SELECT /*+INDEX_DESC(board B_BNO_PK)*/ * FROM board WHERE type=2 AND cl_no=#{cl_no} AND rownum<=5")
+	public List<Board2VO> galleryMainListData(int cl_no);
+	
+	@Select("SELECT /*+INDEX_DESC(board B_BNO_PK)*/ * FROM board WHERE type=1 AND cl_no=#{cl_no} AND rownum<=6")
+	public List<Board2VO> BoardMainListData(int cl_no);
 }
