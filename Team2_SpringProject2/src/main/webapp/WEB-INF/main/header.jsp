@@ -120,7 +120,9 @@ left:300px;
 .whitebox{
 position:absolute;
 background: white;
-width:800px;
+top:-30px;
+
+width:900px;
 height:800px;
 }
 
@@ -135,7 +137,7 @@ height:800px;
 .waves {
 
   position:relative;
-  top:-145px;
+  top:-175px;
   width: 100%;
   height:15vh;
   margin-bottom:-7px; /*Fix for safari gap*/
