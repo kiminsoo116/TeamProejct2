@@ -12,7 +12,7 @@ import java.util.*;
 
 
 import javax.servlet.http.HttpServletRequest;
-
+import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
 
@@ -20,10 +20,13 @@ import org.springframework.ui.Model;
 public class MainController {
 	@Autowired
 	private clubDAO dao;
+	@Autowired
+	private MainMainDAO dao2;
 	
+	private HttpSession session;
 	
 	@GetMapping("main/main.do")
-	public String main_main(Model model,HttpServletRequest request) {
+	public String main_main(HttpSession session,Model model,HttpServletRequest request) {
 		int[] com=new int[16];
 		List<clubVO> list=new ArrayList<clubVO>();
 		getRand(com);
@@ -32,6 +35,45 @@ public class MainController {
 			clubVO vo=dao.clubMainData(com[i]);
 			list.add(vo);
 		}
+		
+		
+		clubVO vo_1=dao2.mainMovingClub1();
+		clubVO vo_2=dao2.mainMovingClub2();
+		clubVO vo_3=dao2.mainMovingClub3();
+		clubVO vo_4=dao2.mainMovingClub4();
+		clubVO vo_5=dao2.mainMovingClub5();
+		
+		if(session.getAttribute("id")!=null) {
+		String id = (String)session.getAttribute("id");
+		String category = dao2.callMyCategory(id);
+		System.out.println(category);
+		StringTokenizer st = new StringTokenizer(category,",");
+		clubVO vo1 = dao2.recommendClub1(st.nextToken());
+		clubVO vo2 = dao2.recommendClub1(st.nextToken());
+		clubVO vo3 = dao2.recommendClub1(st.nextToken());
+		clubVO vo4 = dao2.recommendClub1(st.nextToken());
+		clubVO vo5 = dao2.recommendClub1(st.nextToken());
+		System.out.println(vo1);
+		System.out.println(vo2);
+		System.out.println(vo3);
+		System.out.println(vo4);
+		System.out.println(vo5);
+		
+		model.addAttribute("vo1",vo1);
+		model.addAttribute("vo2",vo2);
+		model.addAttribute("vo3",vo3);
+		model.addAttribute("vo4",vo4);
+		model.addAttribute("vo5",vo5);
+		}
+		
+		
+		
+		model.addAttribute("vo_1",vo_1);
+		model.addAttribute("vo_2",vo_2);
+		model.addAttribute("vo_3",vo_3);
+		model.addAttribute("vo_4",vo_4);
+		model.addAttribute("vo_5",vo_5);
+		
 		
 		
 		model.addAttribute("list", list);

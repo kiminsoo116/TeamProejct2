@@ -60,8 +60,8 @@ line-height: 30%;
 }
 .submitBtn{
 position:absolute;
-bottom:5%;
-left:20%;
+bottom:130px;
+left:200px;
 background: #fdbe51;
  width:420px;
  height:40px;
@@ -72,8 +72,8 @@ background: #fdbe51;
 }
 .backBtn{
 position:absolute;
-bottom:-1%;
-left:20%;
+bottom:70px;
+left:200px;
 background: white;
  width:420px;
  height:40px;
@@ -213,7 +213,7 @@ font-size: 18px;
 				}).open();
 		 },
 		 idcheck:function(){
-			 axios.get("http://localhost:8080/web/member/idcheck.do",{
+			 axios.get("http://localhost:8080/member/idcheck.do",{
 				 params:{
 					 id:this.makingid
 				 }
@@ -222,7 +222,7 @@ font-size: 18px;
 			 })
 		 },
 		 nicCheck:function(){
-			 axios.get("http://localhost:8080/web/member/nicCheck.do",{
+			 axios.get("http://localhost:8080/member/nicCheck.do",{
 				 params:{
 					 nic:this.makingnic
 				 }
@@ -242,7 +242,7 @@ font-size: 18px;
 		 },
 		 
 		 submitBtn:function(){
-			 axios.get("http://localhost:8080/web/member/memberInsert.do",{
+			 axios.get("http://localhost:8080/member/memberInsert.do",{
 			 params:{
 				 id:this.makingid,
 				 pwd:this.makingpwd,

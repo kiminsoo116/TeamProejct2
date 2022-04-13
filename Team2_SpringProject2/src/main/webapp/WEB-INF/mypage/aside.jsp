@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,9 +48,9 @@ font-weight: 700;
 <div class="block">
 	<h4>마이페이지</h4>
 	<div class="buttons">
-	<a href="../mypage/mycategory_go.do" class="menulist" v-model="mycate" v-on:click="catepic()">관심 카테고리</a><div class="brfix"><br></div>
-	<a href="../mypage/wishclub_go.do" class="menulist" v-model="mywish" v-on:click="wishpic()">찜한 동아리</a><div class="brfix"><br></div>
-	<a href="../mypage/fixMyInfo_go.do" class="menulist" v-model="myinfo" v-on:click="infopic()">내 정보 수정</a><div class="brfix"><br></div>
+	<a href="/mypage/mycategory_go.do" class="menulist" v-model="mycate" v-on:click="catepic()">관심 카테고리</a><div class="brfix"><br></div>
+	<a href="/mypage/wishclub_go.do" class="menulist" v-model="mywish" v-on:click="wishpic()">찜한 동아리</a><div class="brfix"><br></div>
+	<a href="/mypage/fixMyInfo_go.do" class="menulist" v-model="myinfo" v-on:click="infopic()">내 정보 수정</a><div class="brfix"><br></div>
 	</div>
 </div>
 <script>

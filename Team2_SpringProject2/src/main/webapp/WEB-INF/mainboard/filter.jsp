@@ -63,6 +63,19 @@ position:absolute;
 bottom:-250px;
 left:800px;
 }
+.pagingBtn{
+width:80px;
+height:30px;
+border:none;
+border-radius:5px;
+background-color: #63bc8d;
+color:white;
+}
+.pagingBtn a{
+font-size:15px;
+font-weight:700px;
+color:white;
+}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
 <script src="http://unpkg.com/axios/dist/axios.min.js"></script>

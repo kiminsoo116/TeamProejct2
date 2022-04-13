@@ -194,7 +194,7 @@ left:15%;
 				if(this.putid==''){
 					alert('아이디를 입력해주세요!');
 				}else{
-					axios.get("http://localhost:8080/web/member/putId.do",{
+					axios.get("http://localhost:8080/member/putId.do",{
 						params:{
 							id:this.putid
 						}
@@ -215,7 +215,7 @@ left:15%;
 				this.step3=true;
 				
 				if(this.sortBy=='byEmail'){
-					axios.get("http://localhost:8080/web/member/tellPwdByEmail.do",{
+					axios.get("http://localhost:8080/member/tellPwdByEmail.do",{
 						params:{
 							name:this.putname,
 							id:this.putid,
@@ -230,7 +230,7 @@ left:15%;
 					
 					})
 				}else{
-					axios.get("http://localhost:8080/web/member/tellPwdByTel.do",{
+					axios.get("http://localhost:8080/member/tellPwdByTel.do",{
 						params:{
 							name:this.putname,
 							id:this.putid,

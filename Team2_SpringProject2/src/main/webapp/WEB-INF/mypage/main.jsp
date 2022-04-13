@@ -23,8 +23,10 @@ top:50px;
 background-color: gray;
 }
 </style>
+
 </head>
 <body>
+
 	<!-- nav 위치 -->
 	<tiles:insertAttribute name="nav" />
 	<!-- Header 위치 -->

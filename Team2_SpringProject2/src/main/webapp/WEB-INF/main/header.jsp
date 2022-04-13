@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,8 +47,8 @@ body {
 #slider label {
 	margin: auto;
 	width: 280px;
-	height: 250px;
-	border-radius: 4px;
+	height: 300px;
+	border-radius: 8px;
 	position: absolute;
 	left: 0;
 	right: 0;
@@ -189,7 +190,49 @@ height:800px;
 body{
 	padding: 0px;
 }
+.recClubpic{
+width:280px;
+height:200px;
+border-radius: 8px 8px 0px 0px;
+}
+.recName{
+position:absolute;
+font-size: 28px;
+font-weight: 900px;
+line-height: 55px;
+color:#568bff;
+left:20px;
+}
+.recInfo{
+position:absolute;
+font-size: 20px;
+font-weight: 900px;
+line-height: 50px;
+color:gray;
+bottom:8px;
+left:20px;
+}
+.recCate{
+position:absolute;
+font-size: 20px;
+font-weight: 900px;
+line-height: 50px;
+color:gray;
+bottom:8px;
+right:20px;
+}
+.recBtn{
+position:absolute;
+width:80px;
+height:28px;
+border:none;
+border-radius: 8px;
+background-color: #fdbe51;
+color:white;
+top:215px;
+right:20px;
 
+}
 </style>
 
 </head>
@@ -213,13 +256,86 @@ viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
 		<div class="wrap">
 		<img alt="" src="../resources/img/header_no.png">
 		<section id="slider">
-			<input type="radio" name="slider" id="s1"> <input
-				type="radio" name="slider" id="s2"> <input type="radio"
-				name="slider" id="s3" checked> <input type="radio"
-				name="slider" id="s4"> <input type="radio" name="slider"
-				id="s5"> <label for="s1" id="slide1"></label> <label
-				for="s2" id="slide2"></label> <label for="s3" id="slide3"></label> <label
-				for="s4" id="slide4"></label> <label for="s5" id="slide5"></label>
+			<input type="radio" name="slider" id="s1">
+			<input type="radio" name="slider" id="s2"> 
+			<input type="radio" name="slider" id="s3" checked> 
+			<input type="radio" name="slider" id="s4"> 
+			<input type="radio" name="slider" id="s5"> 
+			<c:if test="${sessionScope.id!=null }">
+			<label for="s1" id="slide1">
+				<img class="recClubpic" src="${vo1.cl_poster }">
+				<div class="recName">${vo1.cl_name }</div>
+				<button class="recBtn"><a href="/puzzle/${cl_no}/main.do">둘러보기</a></button>
+				<div class="recInfo">${vo1.cl_loc }&nbsp;&nbsp;|&nbsp;&nbsp;${vo1.cl_head }명</div>
+				<div class="recCate">${vo1.cl_category }</div>
+			</label> 
+			<label for="s2" id="slide2">
+				<img class="recClubpic"  src="${vo2.cl_poster }">
+				<div class="recName">${vo2.cl_name }</div>
+				<button class="recBtn"><a href="/puzzle/${cl_no}/main.do">둘러보기</a></button>
+				<div class="recInfo">${vo2.cl_loc }&nbsp;&nbsp;|&nbsp;&nbsp;${vo2.cl_head }명</div>
+				<div class="recCate">${vo2.cl_category }</div>
+			</label> 
+			<label for="s3" id="slide3">
+				<img class="recClubpic"  src="${vo3.cl_poster }">
+				<div class="recName">${vo3.cl_name }</div>
+				<button class="recBtn"><a href="/puzzle/${cl_no}/main.do">둘러보기</a></button>
+				<div class="recInfo">${vo3.cl_loc }&nbsp;&nbsp;|&nbsp;&nbsp;${vo3.cl_head }명</div>
+				<div class="recCate">${vo3.cl_category }</div>
+			</label> 
+			<label for="s4" id="slide4">
+				<img class="recClubpic"  src="${vo4.cl_poster }">
+				<div class="recName">${vo4.cl_name }</div>
+				<button class="recBtn"><a href="/puzzle/${cl_no}/main.do">둘러보기</a></button>
+				<div class="recInfo">${vo4.cl_loc }&nbsp;&nbsp;|&nbsp;&nbsp;${vo4.cl_head }명</div>
+				<div class="recCate">${vo4.cl_category }</div>
+			</label> 
+			<label for="s5" id="slide5">
+				<img class="recClubpic"  src="${vo5.cl_poster }">
+				<div class="recName">${vo5.cl_name }</div>
+				<button class="recBtn"><a href="/puzzle/${cl_no}/main.do">둘러보기</a></button>
+				<div class="recInfo">${vo5.cl_loc }&nbsp;&nbsp;|&nbsp;&nbsp;${vo5.cl_head }명</div>
+				<div class="recCate">${vo5.cl_category }</div>
+			</label>
+			</c:if>
+			
+			<c:if test="${sessionScope.id==null }">
+			 <label for="s1" id="slide1">
+				<img class="recClubpic" src="${vo_1.cl_poster }">
+				<div class="recName">${vo_1.cl_name }</div>
+				<button class="recBtn"><a href="/puzzle/${cl_no}/main.do">둘러보기</a></button>
+				<div class="recInfo">${vo_1.cl_loc }&nbsp;&nbsp;|&nbsp;&nbsp;${vo_1.cl_head }명</div>
+				<div class="recCate">${vo_1.cl_category }</div>
+			</label>  
+			<label for="s2" id="slide2">
+				<img class="recClubpic"  src="${vo_2.cl_poster }">
+				<div class="recName">${vo_2.cl_name }</div>
+				<button class="recBtn"><a href="/puzzle/${cl_no}/main.do">둘러보기</a></button>
+				<div class="recInfo">${vo_2.cl_loc }&nbsp;&nbsp;|&nbsp;&nbsp;${vo_2.cl_head }명</div>
+				<div class="recCate">${vo_2.cl_category }</div>
+			</label> 
+			<label for="s3" id="slide3">
+				<img class="recClubpic"  src="${vo_3.cl_poster }">
+				<div class="recName">${vo_3.cl_name }</div>
+				<button class="recBtn"><a href="/puzzle/${cl_no}/main.do">둘러보기</a></button>
+				<div class="recInfo">${vo_3.cl_loc }&nbsp;&nbsp;|&nbsp;&nbsp;${vo_3.cl_head }명</div>
+				<div class="recCate">${vo_3.cl_category }</div>
+			</label> 
+			<label for="s4" id="slide4">
+				<img class="recClubpic"  src="${vo_4.cl_poster }">
+				<div class="recName">${vo_4.cl_name }</div>
+				<button class="recBtn"><a href="/puzzle/${cl_no}/main.do">둘러보기</a></button>
+				<div class="recInfo">${vo_4.cl_loc }&nbsp;&nbsp;|&nbsp;&nbsp;${vo_4.cl_head }명</div>
+				<div class="recCate">${vo_4.cl_category }</div>
+			</label> 
+			<label for="s5" id="slide5">
+				<img class="recClubpic"  src="${vo_5.cl_poster }">
+				<div class="recName">${vo_5.cl_name }</div>
+				<button class="recBtn"><a href="/puzzle/${cl_no}/main.do">둘러보기</a></button>
+				<div class="recInfo">${vo_5.cl_loc }&nbsp;&nbsp;|&nbsp;&nbsp;${vo_5.cl_head }명</div>
+				<div class="recCate">${vo_5.cl_category }</div>
+			</label>
+			</c:if>
 		</section>
 		</div>
 	</div>

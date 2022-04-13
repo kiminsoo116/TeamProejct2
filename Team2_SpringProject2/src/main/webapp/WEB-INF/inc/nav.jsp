@@ -100,7 +100,7 @@ width: 300px;
                   <button class="btn btn-primary" style="width: 40%%; margin-left: 10px;"><a href="/club/club.do">동아리 생성</a></button>
                   <button class="btn btn-primary"
                      style="width: 20%; margin-left: 20px; margin-right: 10px;" ><a href="/member/log_out.do">로그아웃</a></button>
-                  <button class="btn btn-primary" style="width: 40%%;"><a href="/member/sign_up.do">마이페이지</a></button>
+                  <button class="btn btn-primary" style="width: 40%%;"><a href="/mypage/mypage_go.do">마이페이지</a></button>
                   
                   </c:if>
 						</div>

@@ -191,7 +191,7 @@ left:15%;
 			submitBtn:function(){
 				this.step2=true;
 				if(this.sortBy=='byEmail'){
-					axios.get("http://localhost:8080/web/member/tellIdByEmail.do",{
+					axios.get("http://localhost:8080/member/tellIdByEmail.do",{
 						params:{
 							name:this.putname,
 							email:this.putemail
@@ -205,7 +205,7 @@ left:15%;
 					
 					})
 				}else{
-					axios.get("http://localhost:8080/web/member/tellIdByTel.do",{
+					axios.get("http://localhost:8080/member/tellIdByTel.do",{
 						params:{
 							name:this.putname,
 							tel:this.puttel

@@ -7,6 +7,94 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+.header{
+/* background-color: blue; */
+width:100%;
+height:500px;
+position:absolute;
+top:0px;
+}
+.clublist{
+/* background-color: yellow; */
+width:1600px;
+height:350px;
+position:absolute;
+top:150px;
+left:3%;
+overflow: hidden;
+}
+.makeoverflow{
+width:3300px;
+height:350px;
+}
+.oneclub{
+display:inline-block;
+/* background-color: red; */
+width:270px;
+height:280px;
+position:relative;
+top:0px;
+margin:15px;
+}
+.CLposter{
+border-radius: 10px;
+	width: 264px;
+	height: 200px;
+}
+/* .cover{
+background:linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+width:50px;
+height:350px;
+position:absolute;
+z-index:3;
+right:0px;
+} */
+h2{
+position:absolute;
+left:4%;
+top:100px;
+font-weight:700;
+}
+.righter{
+position:absolute;
+right:4%;
+top:50%;
+z-index: 4;
+}
+.namechip a{
+position:absolute;
+top:203px;
+text-decoration: none;
+color:white;
+font-weight: 700;
+margin:10px;
+}
+.namechip{
+width:264px;
+height:35px;
+margin-top:8px;
+background-color: #359164;
+border-radius: 5px;
+}
+.info2{
+position:absolute;
+top:213px;
+right:50px;
+color:white;
+}
+.oneclub slick-slide slick-active{
+width:0px;
+}
+
+
+
+
+
+
+
+
+
+
 .fully{
 	position:absolute;
 	width:100%;
@@ -25,8 +113,9 @@
 
 .makePosition{
 	position:relative;
-	margin:0px auto;
-	width:450px;
+	left:50px;
+	margin:0px 0px;
+	width:470px;
 	height:500px;
 }
 .msgcss{
@@ -39,6 +128,7 @@ border:1.3px solid gray;
 }
 .makePosition button{
 	background: #fdbe51;
+	float:right;
 	width:115px;
 	height:25px;
 	border:none;
@@ -90,7 +180,7 @@ position:relative;
 background-color: #fdbe51;
 top:20px;
 left:0px;
- width:450px;
+ width:500px;
  height:40px;
  	border:none;
 	border-radius: 5px;
@@ -173,6 +263,25 @@ left:0px;
 	</div>
 </div>
 </div>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script type="text/javascript"
+		src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> 
+
+	<script>
+		$(document).ready(function() {
+			$('.makeoverflow').slick({
+				prevArrow : $(".lefter"),
+				nextArrow : $(".righter"),
+				infinite : true,
+				speed : 300,
+				slidesToShow : 10,
+				slidesToScroll : 1
+			});
+		});
+	</script>
+
+
+
 <script>
 new Vue({
 	el:'.fixinfo',
@@ -202,7 +311,7 @@ new Vue({
 				}).open();
 		},
 		nicCheck:function(){
-			 axios.get("http://localhost:8080/web/member/nicCheck.do",{
+			 axios.get("http://localhost:8080/member/nicCheck.do",{
 				 params:{
 					 nic:this.makingnic
 				 }
