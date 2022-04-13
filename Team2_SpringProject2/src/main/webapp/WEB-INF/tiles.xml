@@ -20,6 +20,9 @@
       <put-attribute name="footer" value="/WEB-INF/inc/footer.jsp"/>
    </definition>
    <!-- 동아리 메인페이지에서 다른페이지 화면출력 -->
+   <definition name="chat/*" extends="puzzle">
+      <put-attribute name="content" value="/WEB-INF/chat/{1}.jsp" />
+   </definition>
    <definition name="gallery/*" extends="puzzle">
       <put-attribute name="content" value="/WEB-INF/gallery/{1}.jsp" />
    </definition>

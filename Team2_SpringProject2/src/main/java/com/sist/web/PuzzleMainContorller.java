@@ -108,5 +108,17 @@ public class PuzzleMainContorller {
 		dao.cancelJoin(session,cl);
 		return "redirect:/puzzle/"+cl+"/main.do";
 	}
+	
+	@GetMapping("/puzzle/{cl}/chat/chat.do")
+	public String puzzleChat(Model m, HttpSession session, @PathVariable int cl) {
+		int grade = dao.ismember(session, cl);
+		String id=(String)session.getAttribute("id");
+		
+		m.addAttribute("grade", grade);
+		m.addAttribute("cl", cl);
+		m.addAttribute("id", id);
+
+		return "chat/chat";
+	}
 
 }
