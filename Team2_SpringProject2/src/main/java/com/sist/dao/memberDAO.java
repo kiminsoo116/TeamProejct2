@@ -119,7 +119,7 @@ public class memberDAO {
 		}
 	}
 
-	public Integer ismember(HttpSession session, int cl) {
+		public Integer ismember(HttpSession session, int cl) {
 		
 		String id = (String)session.getAttribute("id");
 		System.out.println(id);
@@ -137,9 +137,9 @@ public class memberDAO {
 		return grade;
 	}
 
-	public void clubJoin(HttpSession session, int cl) {
+	public void clubJoin(HttpSession session, int cl, String g_msg) {
 		String id = (String)session.getAttribute("id");
-		mapper.clubJoin(id,cl);
+		mapper.clubJoin(id,cl,g_msg);
 	}
 
 	public void cancelJoin(HttpSession session, int cl) {

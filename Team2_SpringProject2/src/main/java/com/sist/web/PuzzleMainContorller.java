@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.sist.dao.memberDAO;
 import com.sist.service.PuzzleMainServiceImpl;
@@ -79,24 +80,33 @@ public class PuzzleMainContorller {
 		return "puzzle";
 	}
 
-	@GetMapping("/puzzle/{cl}/dojoin.do")
-	public String dojoin(Model m, HttpSession session, @PathVariable int cl) {
-		int grade = dao.ismember(session, cl);
-		m.addAttribute("grade", grade);
-		m.addAttribute("cl", cl);
-
-		dao.clubJoin(session, cl);
-		return "redirect:/puzzle/" + cl + "/main.do";
+	@GetMapping("/puzzle/{cl}/join.do")
+	public String join(Model m, HttpSession session ,@PathVariable int cl) {
+		int grade =dao.ismember(session, cl);
+		m.addAttribute("grade",grade);
+		m.addAttribute("cl",cl);
+		
+		return "board/join";
 	}
-
+	
+	@PostMapping("/puzzle/{cl}/dojoin.do")
+	public String dojoin(Model m, HttpSession session ,@PathVariable int cl, String g_msg) {
+		int grade =dao.ismember(session, cl);
+		m.addAttribute("grade",grade);
+		m.addAttribute("cl",cl);
+		
+		dao.clubJoin(session,cl,g_msg);
+		return "redirect:/puzzle/"+cl+"/main.do";
+	}
+	
 	@GetMapping("/puzzle/{cl}/canceljoin.do")
-	public String canceljoin(Model m, HttpSession session, @PathVariable int cl) {
-		int grade = dao.ismember(session, cl);
-		m.addAttribute("grade", grade);
-		m.addAttribute("cl", cl);
-
-		dao.cancelJoin(session, cl);
-		return "redirect:/puzzle/" + cl + "/main.do";
+	public String canceljoin(Model m, HttpSession session ,@PathVariable int cl) {
+		int grade =dao.ismember(session, cl);
+		m.addAttribute("grade",grade);
+		m.addAttribute("cl",cl);
+		
+		dao.cancelJoin(session,cl);
+		return "redirect:/puzzle/"+cl+"/main.do";
 	}
 
 }
