@@ -55,4 +55,7 @@ public interface signupMapper {
 
 	@Delete("DELETE FROM grade WHERE id=#{id} AND cl_no=#{cl}")
 	public void cancelJoin(@Param("id")String id,@Param("cl") int cl);
+	
+	@Select("SELECT COUNT(*) FROM grade WHERE cl_no=#{cl_no}")
+	public int puzzleMainHeadCount(int cl_no);
 }

@@ -147,5 +147,7 @@ public class memberDAO {
 		mapper.cancelJoin(id,cl);
 	}
 
-	
+	public int puzzleMainHeadCount(int cl_no) {
+		return mapper.puzzleMainHeadCount(cl_no);
+	}
 }

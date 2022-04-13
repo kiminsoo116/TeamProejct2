@@ -14,7 +14,7 @@
 						<div><strong style="background-color: #86b3f5; color: white;border-radius: 10px; font-size: 40px; padding-left: 20px;padding-right: 20px;">${cvo.cl_name }</strong></div>
 						<br>
 						<br>
-						<div style="position: relative;"><h4><b>인원 :</b> 00 / ${cvo.cl_head } 명</h4></div>
+						<div style="position: relative;"><h4><b>인원 :</b> ${count } / ${cvo.cl_head } 명</h4></div>
 						<div style="position: relative; margin-left: 250px; margin-top: -37px;"><h4><b>활동지역 :</b> ${cvo.cl_loc }</h4></div>
 						<div style="position: relative; margin-left: 520px; margin-top: -39px;"><h4><b>카테고리 :</b> ${cvo.cl_category }</h4></div>
 						<br>

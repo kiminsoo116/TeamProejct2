@@ -69,6 +69,8 @@ public class PuzzleMainContorller {
 				}
 			}
 		}
+		
+		int count=service.puzzleMainHeadCount(cl);
 
 		m.addAttribute("grade", grade);
 		m.addAttribute("cl", cl);
@@ -76,6 +78,7 @@ public class PuzzleMainContorller {
 		m.addAttribute("glist", glist);
 		m.addAttribute("blist", blist);
 		m.addAttribute("iList", iList);
+		m.addAttribute("count", count);
 
 		return "puzzle";
 	}

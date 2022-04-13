@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.sist.dao.GalendarDAO;
 import com.sist.dao.GalleryBoardDAO;
 import com.sist.dao.clubDAO;
+import com.sist.dao.memberDAO;
 import com.sist.vo.Board2VO;
 import com.sist.vo.GalendarPuzzleVO;
 import com.sist.vo.clubVO;
@@ -20,7 +21,9 @@ public class PuzzleMainServiceImpl implements PuzzleMainService {
 	private GalendarDAO gdao;
 	@Autowired
 	private GalleryBoardDAO gbdao;
-
+	@Autowired
+	private memberDAO mdao;
+	
 	@Override
 	public clubVO puzzleMainInfoData(int cl_no) {
 		// TODO Auto-generated method stub
@@ -43,6 +46,12 @@ public class PuzzleMainServiceImpl implements PuzzleMainService {
 	public List<Board2VO> galleryMainListData(int cl_no) {
 		// TODO Auto-generated method stub
 		return gbdao.galleryMainListData(cl_no);
+	}
+
+	@Override
+	public int puzzleMainHeadCount(int cl_no) {
+		// TODO Auto-generated method stub
+		return mdao.puzzleMainHeadCount(cl_no);
 	}
 
 }

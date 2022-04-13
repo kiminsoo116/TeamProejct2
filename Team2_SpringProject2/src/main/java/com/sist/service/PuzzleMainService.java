@@ -19,4 +19,6 @@ public interface PuzzleMainService {
 	// 동아리 이미지 출력
 	public List<Board2VO> galleryMainListData(int cl_no);
 	
+	// 동아리 인원 카운팅
+	public int puzzleMainHeadCount(int cl_no);
 }
