@@ -50,8 +50,8 @@ public interface signupMapper {
 	@Select("SELECT CL_RANK FROM grade WHERE id=#{id} AND cl_no=#{cl}")
 	public Integer ismember(@Param("id") String id,@Param("cl") int cl);
 
-	@Insert("INSERT INTO grade values(4,#{id},#{cl})")
-	public void clubJoin(@Param("id")String id,@Param("cl") int cl);
+	@Insert("INSERT INTO grade values(4,#{id},#{cl},#{g_msg})")
+	public void clubJoin(@Param("id")String id,@Param("cl") int cl,@Param("g_msg") String g_msg);
 
 	@Delete("DELETE FROM grade WHERE id=#{id} AND cl_no=#{cl}")
 	public void cancelJoin(@Param("id")String id,@Param("cl") int cl);

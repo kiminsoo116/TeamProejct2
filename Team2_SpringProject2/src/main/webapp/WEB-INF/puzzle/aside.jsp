@@ -14,12 +14,17 @@
 									aria-expanded="true" aria-controls="collapseOne">
 									<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
  									 <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-									</svg> <strong style="color: black;"> 회원 아이디 및 닉네임</strong>
+									</svg> <strong style="color: black;"> 회원 정</strong>
 								</button>
 							</h2>
 							<div id="collapseOne" class="accordion-collapse collapse show"
 								aria-labelledby="headingOne" data-bs-parent="#accordionExample">
 								<div class="accordion-body" style="text-align:center;">
+									<c:if test="${empty sessionScope}">
+									<strong>로그인을 먼저 해주세요.</strong>
+									</c:if>
+									<c:if test="${!empty sessionScope}">
+									
 									<c:if test="${grade==0}">
 										<strong>가입되지 않은 회원입니다.</strong>
 										<button type="button" class="btn btn-primary" style="width: 100%;margin-top:20px" onclick="join()">가입신청</button>
@@ -37,6 +42,8 @@
 										<c:if test="${grade==2}">운영진</c:if>
 										<c:if test="${grade==3}">회원</c:if>
 										</div>
+									</c:if>
+									
 									</c:if>
 								</div>
 							</div>
@@ -114,12 +121,13 @@
 	</div>
 	<script>
 		function join(){
-			if(confirm('가입신청을 하시겠습니까?')){
-				location.href="dojoin.do";
+			if(confirm('가입신청 페이지로 이동하겠습니까?')){
+				location.href="join.do";
 			}
 		}
 		function cancel(){
 			if(confirm('가입신청을 취소 하시겠습니까?')){
+				alert('취소되었습니다.');
 				location.href="canceljoin.do";
 			}
 		}

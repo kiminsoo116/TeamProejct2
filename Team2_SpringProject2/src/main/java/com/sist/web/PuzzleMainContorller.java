@@ -26,13 +26,22 @@ public class PuzzleMainContorller {
 	}
 	
 	
-	@GetMapping("/puzzle/{cl}/dojoin.do")
-	public String dojoin(Model m, HttpSession session ,@PathVariable int cl) {
+	@GetMapping("/puzzle/{cl}/join.do")
+	public String join(Model m, HttpSession session ,@PathVariable int cl) {
 		int grade =dao.ismember(session, cl);
 		m.addAttribute("grade",grade);
 		m.addAttribute("cl",cl);
 		
-		dao.clubJoin(session,cl);
+		return "board/join";
+	}
+	
+	@PostMapping("/puzzle/{cl}/dojoin.do")
+	public String dojoin(Model m, HttpSession session ,@PathVariable int cl, String g_msg) {
+		int grade =dao.ismember(session, cl);
+		m.addAttribute("grade",grade);
+		m.addAttribute("cl",cl);
+		
+		dao.clubJoin(session,cl,g_msg);
 		return "redirect:/puzzle/"+cl+"/main.do";
 	}
 	
