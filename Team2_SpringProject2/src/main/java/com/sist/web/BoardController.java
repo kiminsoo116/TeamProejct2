@@ -33,8 +33,8 @@ public class BoardController {
 		m.addAttribute("grade",grade);
 		m.addAttribute("cl",cl);
 		
-		m.addAttribute("list",board.getList(p,q,t));
-		m.addAttribute("total",board.getCount(q,t));
+		m.addAttribute("list",board.getList(p,q,t,cl));
+		m.addAttribute("total",board.getCount(q,t,cl));
 		m.addAttribute("q",q);
 		m.addAttribute("t",t);
 		return "board/list";
@@ -52,7 +52,7 @@ public class BoardController {
 		int grade =dao.ismember(session, cl);
 		m.addAttribute("grade",grade);
 		m.addAttribute("cl",cl);
-		board.dowrite(b_title,b_content);
+		board.dowrite(b_title,b_content,session,cl);
 		return "redirect:../board/list.do";
 	}
 	
