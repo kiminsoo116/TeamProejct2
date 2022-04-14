@@ -55,14 +55,14 @@ $(function(){
 
 .box {
    position: absolute;
-   top: 45%;
-   left: 18%;
+   top: 50%;
+   left: 24%;
 }
 
 .row2 {
    position: absolute;
-   top: 10%;
-   left: 15%;
+   top: 17%;
+   left: 20%;
 }
 
 .row3 {
@@ -101,7 +101,7 @@ margin:0px auto;
 .thumbnail {
    position: relative;
    float: left;
-   top: 485px;
+   top: 550px;
    left: 10%;
    margin: 10px;
    float: left;
@@ -109,13 +109,18 @@ margin:0px auto;
 
 .pagee {
    position: absolute;
-   top: 90%;
-   left: 45%;
+   top: 85%;
+   left: 48%;
+}
+.h{
+position: absolute;
+top:8%;
+left:20%;
 }
 </style>
 </head>
 <body>
-
+<h2 class="h"><strong>지역 맛집 검색</strong></h2>
  <div class="container">
 <div class="wrapper row2">
   <div id="a">
@@ -130,7 +135,7 @@ margin:0px auto;
 <div class="row">
 <div class="box">
 	           <div class="box1">
-	       Search:<input type=text size=20 id="yy" class="input-sm"  v-model="ss"
+	       Search:<input type=text size=23 id="yy" class="input-sm"  v-model="ss"
              :value="ss">
              <input type=button class="btn btn-sm btn-primary"
               value="검색" v-on:click="find()">

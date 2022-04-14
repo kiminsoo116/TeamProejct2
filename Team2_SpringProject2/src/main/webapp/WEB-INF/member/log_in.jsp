@@ -37,7 +37,7 @@ h2{
 	position:relative;
 	margin:0px auto;
 	
-	width:290px;
+	width:320px;
 	height:200px;
 }
 .msgcss{

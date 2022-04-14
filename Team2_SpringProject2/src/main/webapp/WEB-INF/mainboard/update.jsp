@@ -88,7 +88,7 @@ font-weight: 700;
 </div>
 <div class="listblock">
 	<form method="post" action="../mainboard/update.do">
-	<span>제목 : <input type="text" size=50 name="b_title" value="${vo.b_title }"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<span>제목 : <input type="text" size=50 name="b_title" value="${vo.b_title }"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<span>작성자 : <input type="text" size=20 name="id" value="${id }" readonly> </span>
 	<div class="divider"></div>
 	<textarea rows="10" cols="97" name="b_content">${vo.b_content }</textarea>

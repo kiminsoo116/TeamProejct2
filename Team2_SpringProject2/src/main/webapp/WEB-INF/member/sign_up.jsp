@@ -37,7 +37,7 @@ h2{
 .makePosition{
 	position:relative;
 	margin:0px auto;
-	width:420px;
+	width:450px;
 	height:500px;
 }
 .msgcss{

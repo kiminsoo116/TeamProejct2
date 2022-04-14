@@ -199,7 +199,7 @@ border-radius: 8px 8px 0px 0px;
 }
 .recName{
 position:absolute;
-font-size: 28px;
+font-size: 26px;
 font-weight: 900px;
 line-height: 55px;
 color:#568bff;
@@ -207,7 +207,7 @@ left:20px;
 }
 .recInfo{
 position:absolute;
-font-size: 20px;
+font-size: 17px;
 font-weight: 900px;
 line-height: 50px;
 color:gray;
@@ -216,7 +216,7 @@ left:20px;
 }
 .recCate{
 position:absolute;
-font-size: 20px;
+font-size: 17px;
 font-weight: 900px;
 line-height: 50px;
 color:gray;

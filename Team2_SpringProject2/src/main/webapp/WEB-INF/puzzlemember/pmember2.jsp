@@ -28,6 +28,7 @@ left:55px;
 td{
 margin-top:0.5px;
 }
+
 </style>
 </head>
 <body>
@@ -57,7 +58,7 @@ margin-top:0.5px;
 				<table class="table">
 					<tr>
 						<td class="text-left">
-							<h2>회원관리 페이지</h2>
+							<h2><strong>회원 관리</strong></h2>
 						</td>
 					</tr>
 				</table>
@@ -66,11 +67,11 @@ margin-top:0.5px;
 					<table class="table table-striped table-sm">
 						<thead>
 							<tr>
-								<th scope="col" width="20%">ID</th>
-								<th scope="col" width="20%">직위</th>
-								<th scope="col" width="20%">승급</th>
-								<th scope="col" width="20%">강등</th>
-								<th scope="col" width="20%">퇴출</th>
+								<th scope="col" width="10%">ID</th>
+								<th scope="col" width="30%">직위</th>
+								<th scope="col" width="8%">승급</th>
+								<th scope="col" width="8%">강등</th>
+								<th scope="col" width="8%">퇴출</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -108,8 +109,8 @@ margin-top:0.5px;
 						</div>
 						</div>
 					
-	<a href="/puzzle/${cl}/puzzlemember/pmember.do"><input type="button" value="가입처리" style="width:150px; height:50px;" class="infom1"></a>
-	<a href="/puzzle/${cl}/puzzlemember/pmember1.do"><input type="button" value="회원관리" style="width:150px; height:50px; background:#573EF2; color:white" class="infom2"></a>
+	<a href="/puzzle/${cl}/puzzlemember/pmember.do"><input type="button" value="가입처리" style="width:150px; height:50px; border-radius:8px; border:none;" class="infom1"></a>
+	<a href="/puzzle/${cl}/puzzlemember/pmember1.do"><input type="button" value="회원관리" style="width:150px; height:50px; border-radius:8px; border:none; background:#573EF2; color:white" class="infom2"></a>
 	</div>
 	</main>
 	</div>

@@ -35,6 +35,7 @@ position: relative;
 top:150px;
 left:55px;
 }
+
 </style>
 </head>
 <body>
@@ -45,7 +46,7 @@ left:55px;
 				<table class="table">
 					<tr>
 						<td class="text-left">
-							<h2>회원관리 페이지</h2>
+							<h2><strong>가입 승인  / 거절</strong></h2>
 						</td>
 					</tr>
 				</table>
@@ -65,18 +66,43 @@ left:55px;
 						<tr>
 				 		<td>${vo.id}</td>
 							<td>${vo.g_msg}</td>
-							<td><a href="/puzzle/${cl}/puzzlemember/update_ok.do?id=${vo.id}" class="btn btn-primary">승인</a></td>
-							<td><a href="/puzzle/${cl}/puzzlemember/delete_ok.do?id=${vo.id}" class="btn btn-danger">거절</a></td>
+							<td><a href="/puzzle/${cl}/puzzlemember/update_ok.do?id=${vo.id}" class="btn btn-primary" onclick="ok()">승인</a></td>
+							<td><a href="/puzzle/${cl}/puzzlemember/delete_ok.do?id=${vo.id}" class="btn btn-danger" onclick="no()">거절</a></td>
 						</tr> 
 						</c:forEach> 
 						</tbody>
 						</table>
 						</div>
 					
-	<a href="/puzzle/${cl}/puzzlemember/pmember.do"><input type="button" value="가입처리" style="width:150px; height:50px; background:#573EF2; color:white" class="infom1"></a>
-	<a href="/puzzle/${cl}/puzzlemember/pmember1.do"><input type="button" value="회원관리" style="width:150px; height:50px;" class="infom2"></a>
+	<a href="/puzzle/${cl}/puzzlemember/pmember.do"><input type="button" value="가입처리" style="width:150px; height:50px; background:#573EF2; color:white; border-radius:8px; border:none;" class="infom1"></a>
+	<a href="/puzzle/${cl}/puzzlemember/pmember1.do"><input type="button" value="회원관리" style="width:150px; height:50px; border-radius:8px; border:none;" class="infom2"></a>
 	</div>
 	</main>
 	</div>
+	<script type="text/javascript">
+
+	function ok(){
+
+	if (confirm("정말 승인하시겠습니까??") == true){    //확인
+
+	    document.form.submit();
+
+	}else{   //취소
+
+	    return false;
+	}
+	}
+	function no(){
+
+	if (confirm("정말 거절하시겠습니까??") == true){    //확인
+
+	    document.form.submit();
+
+	}else{   //취소
+
+		return false;
+		}
+	}
+	</script>
 </body>
 </html>

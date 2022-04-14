@@ -17,9 +17,12 @@
 h1{
    text-align: center;
 }
-th{
-margin:20px;
+
+table {
+	border-collapse: separate;
+	border-spacing: 0 8px;
 }
+
 </style>
 <script type="text/javascript">
 $(function(){
@@ -62,7 +65,7 @@ $(function(){
 </head>
 <body>
    <div class="container">
-    <h1>PUZZLE 생성</h1>
+    <h1><strong>PUZZLE 생성</strong></h1>
     <hr>
     <br>
     <br>
@@ -143,8 +146,8 @@ $(function(){
       
       <tr>
         <td colspan="2" class="text-center">
-          <input type=button class="btn btn-sm btn-success" 
-          value="퍼즐생성" id="joinpuzzle">
+          <input type=button class="btn btn-sm btn-primary" 
+          value="퍼즐생성" id="joinpuzzle">&nbsp;&nbsp;&nbsp;&nbsp;
           <input type=button class="btn btn-sm btn-warning" 
           value="취소" onclick="javascript:history.back()">
         </td>
