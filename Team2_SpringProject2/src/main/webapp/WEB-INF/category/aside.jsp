@@ -16,6 +16,13 @@ line-height: 23px;
 
 color: #27243A;
 }
+
+.w3-sidebar{
+height: 68%;
+border-radius: 10px;
+top: 34.3%;
+left: 8%;
+}
 </style>
 </head>
 <body>

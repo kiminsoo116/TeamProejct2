@@ -68,6 +68,7 @@
 	
 	<definition name="search" template="/WEB-INF/search/main.jsp">
     	<put-attribute name="nav" value="/WEB-INF/inc/nav.jsp"/>
+    	<put-attribute name="aside" value="/WEB-INF/search/aside.jsp"/>
 		<put-attribute name="search_find" value="/WEB-INF/search/search_find.jsp"/>		
 		<put-attribute name="footer" value="/WEB-INF/inc/footer.jsp"/>
 		

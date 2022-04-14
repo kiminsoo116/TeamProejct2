@@ -9,6 +9,13 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
 <script src="http://unpkg.com/axios/dist/axios.min.js"></script>
 <style type="text/css">
+.list-out{
+width: 100%;
+height: 236px;
+top: 50px;
+text-align: center;
+background-color: #84b1f3; 
+}
 .list-first{
 display: inline-block;
 margin-right: 40px;
@@ -34,9 +41,16 @@ border-radius: 10px;
 .list-container2{
 width: 1600px;
 left: 9%;
-top: 35%;
+top: 33%;
 position: absolute;
 }
+
+.content{
+position: absolute;
+top: -50px;
+left: 130px;
+}
+
 
 .pagination{
 
@@ -65,9 +79,10 @@ border-radius: 10px;
 }
 .page-ul{
 position: absolute;
-left: 39.5%;
+left: 46%;
 width: 400px;
-top: 168%;
+height:113px;
+top: 155%;
 
 }
 .page-li{
@@ -82,6 +97,7 @@ font-size: 20px;
 line-height: 39px;
 
 color: #27243A;
+margin-bottom: 4px;
 }
 
 .list-ul{
@@ -89,22 +105,8 @@ margin-top: 10%;
 
 }
 
-.list-banner{
-left: 377px;
-top: 96px;
-position: absolute;
-width: 973px;
-height: 300px;
-}
-
-.list-line{
-position: absolute;
-width: 1400px;
-height: 0px;
-left: 210px;
-top: 419px;
-
-border: 1px solid rgba(0, 0, 0, 0.15);
+.list-content{
+margin-bottom: 1px;
 }
 
 .list-li-button{
@@ -137,8 +139,10 @@ color: #FFFFFF;
 </style>
 </head>
 <body>
+<div class="list-out">
 <img  src="../resources/img/cooklist-banner.png" class="list-banner">
-<div class="list-line"></div>
+</div>
+
 <div class="list-container">
   <main class="list-container2"> 
     <!-- main body -->
@@ -156,12 +160,16 @@ color: #FFFFFF;
             <li class="list-first" v-for="(vo,index) in recipe_list" v-if="index%3==0"><img :src="vo.poster" :title="vo.title" class="list-img">
             	<p class="list-name">{{vo.title}}</p>
 	            <p>{{vo.content}}</p>
+	            <a href="/puzzle/1/main.do">
 	           <button class="list-li-button"><p class="list-li-name">퍼즐 참가하기</p></button>
+	           </a>
             </li>
             <li class="list-second" v-else><img :src="vo.poster" :title="vo.title" class="list-img">
             	<p class="list-name">{{vo.title}}</p>
 	            <p>{{vo.content}}</p>
+	            <a href="/puzzle/1/main.do">
 	            <button class="list-li-button"><p class="list-li-name">퍼즐 참가하기</p></button>
+	            </a>
             </li>
 
           </ul>

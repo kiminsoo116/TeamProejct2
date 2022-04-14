@@ -16,8 +16,8 @@ left: 540px;
 top: 78px;
 
 background: #FFFFFF;
-box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.35);
 border-radius: 10px;
+border: 8px solid #fdbe51;
 }
 
 .pluspuzzle-form{
@@ -147,7 +147,6 @@ font-style: normal;
 font-weight: 600;
 font-size: 20px;
 line-height: 117.69%;
-/* identical to box height, or 24px */
 
 display: flex;
 align-items: flex-end;
@@ -180,7 +179,6 @@ font-style: normal;
 font-weight: 600;
 font-size: 20px;
 line-height: 117.69%;
-/* identical to box height, or 24px */
 
 display: flex;
 align-items: flex-end;
@@ -213,7 +211,6 @@ font-style: normal;
 font-weight: 600;
 font-size: 20px;
 line-height: 117.69%;
-/* identical to box height, or 24px */
 
 display: flex;
 align-items: flex-end;
@@ -233,7 +230,6 @@ font-style: normal;
 font-weight: 600;
 font-size: 20px;
 line-height: 117.69%;
-/* identical to box height, or 24px */
 
 display: flex;
 align-items: flex-end;
@@ -280,7 +276,6 @@ font-style: normal;
 font-weight: 600;
 font-size: 20px;
 line-height: 117.69%;
-/* identical to box height, or 24px */
 
 display: flex;
 align-items: flex-end;
@@ -378,6 +373,7 @@ top: 16px;
 position: absolute;
 width: 100%;
 height: 100%;
+background-color: #fff4e6;
 
 }
 
@@ -386,8 +382,6 @@ position: absolute;
 width: 100%;
 height: 100%;
 
-
-background: linear-gradient(180deg, rgba(47, 47, 47, 0.3) 8.85%, rgba(21, 20, 30, 0.681818) 43.23%, #27243A 81.25%);
 }
 
 
@@ -446,7 +440,7 @@ $(function(){
 </script>
 </head>
 <body>
-<img class="join-background" src="../resources/img/puzzle-back.png">
+<img class="join-background">
  <img class="join-background-a" ></div>
 </div>
 <div class="join-container">
@@ -685,7 +679,7 @@ new Vue({
 	methods:{
 		makeclub:function(){
 			
-			axios.get('http://localhost:8080/web/club/club_Insert.do',{
+			axios.get('/club/club_Insert.do',{
 				params:{
 					cl_category:this.cl_category,
 					cl_loc:this.cl_loc,

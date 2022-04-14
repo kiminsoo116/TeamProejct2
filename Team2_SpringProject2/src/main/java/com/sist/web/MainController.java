@@ -29,12 +29,21 @@ public class MainController {
 	public String main_main(HttpSession session,Model model,HttpServletRequest request) {
 		int[] com=new int[16];
 		List<clubVO> list=new ArrayList<clubVO>();
+		Map map=new HashMap();
+		String id1 =(String)session.getAttribute("id");
+		map.put("id1", id1);
+		List<clubgradeVO> list2=dao.clubgradeMainData(map);
+		List<clubpuzzleVO> list3=dao.clubpuzzleMainData();
 		getRand(com);
 		for(int i=0;i<16;i++)
 		{
 			clubVO vo=dao.clubMainData(com[i]);
 			list.add(vo);
 		}
+		
+		model.addAttribute("list", list);
+		model.addAttribute("list2", list2); 
+		model.addAttribute("list3", list3);
 		
 		
 		clubVO vo_1=dao2.mainMovingClub1();
@@ -91,7 +100,7 @@ public class MainController {
 			bCheck=true;
 			while(bCheck)
 			{
-				su=(int)(Math.random()*70)+1;
+				su=(int)(Math.random()*90)+1;
 				bCheck=false;
 				for(int j=0;j<i;j++)
 				{

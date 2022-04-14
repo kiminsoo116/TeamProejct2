@@ -86,8 +86,8 @@
 }
 .card-img-top {
 	border-radius: 5px;
-	width: 220px;
-	height: 160px;
+	width: 280px;
+	height: 193px;
 }
 .card-title {
 font-family: Roboto;
@@ -98,6 +98,7 @@ font-size: 20px;
 line-height: 39px;
 
 color: #27243A;
+margin-bottom: -22px;
 }
 strong{
 	left: -50px;
@@ -134,7 +135,7 @@ strong{
 div, ul, li {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;padding:0;margin:0}
 a {text-decoration:none;}
 
-.quickmenu {position:absolute;width:105px;top:50%;margin-top:200px;right:10px;background:#fff;}
+.quickmenu {position:absolute;width:105px;top:47.5%;margin-top:200px;right:10px;background:#fff;}
 .quickmenu ul {position:relative;float:left;width:100%;display:inline-block;*display:inline;border:1px solid #ddd;}
 .quickmenu ul li {float:left;width:100%;border-bottom:1px solid #ddd;text-align:center;display:inline-block;*display:inline;}
 .quickmenu ul li a {position:relative;float:left;width:100%;height:30px;line-height:30px;text-align:center;color:#999;font-size:13.5pt;}
@@ -146,21 +147,22 @@ a {text-decoration:none;}
 <body>
 	<section class="container">
 		<!-- 로그인 되었을때만 나타나게 해야함 -->
+		<c:if test="${sessionScope.id!=null }">  
 		<div class="row1">
 			<h3 class="title1">
-				<strong>내가 가입한 퍼즐</strong>
+				<strong>내가 가입한 동아리</strong>
 			</h3>
 			<div class="box1">
 				<img class="lefter1" src="../resources/img/화살표.png">
 				<div class="overflow1">
-					<c:forEach begin="1" end="12" step="1">
+					<c:forEach var="vo" items="${list2 }">
 						<div class="oneRank1">
-							<img src="../resources/img/poster2.png" class="card-img-top">
+							<img src="${vo.cl_poster }" class="card-img-top">
 							<div class="card-body">
-								<h5 class="card-title">동아리 이름</h5>
+								<h5 class="card-title">${vo.cl_name }</h5>
 								<br>
-								<p class="card-text">동아리 간단 설명</p>
-								<a href="#" class="btn btn-primary"
+								<p class="card-text">${vo.cl_content }</p>
+								<a href="/puzzle/1/main.do" class="btn btn-primary"
 									style="background-color: #3a65ef">퍼즐 참가하기</a>
 							</div>
 						</div>
@@ -169,7 +171,8 @@ a {text-decoration:none;}
 				<img class="righter1" src="../resources/img/화살표2.png">
 			</div>
 		</div>
-
+		</c:if>
+		  
 		<div class="row1">
 			<h3 class="title1">
 				<strong>마감 임박 퍼즐</strong>
@@ -177,14 +180,14 @@ a {text-decoration:none;}
 			<div class="box2">
 				<img class="lefter2" src="../resources/img/화살표.png">
 				<div class="overflow2">
-					<c:forEach begin="1" end="12" step="1">
+					<c:forEach var="vo" items="${list3 }" >
 						<div class="oneRank2">
-							<img src="../resources/img/poster2.png" class="card-img-top">
+							<img src="${vo.cl_poster }" class="card-img-top">
 							<div class="card-body">
-								<h5 class="card-title">동아리 이름</h5>
+								<h5 class="card-title">${vo.cl_name }</h5>
 								<br>
-								<p class="card-text">동아리 간단 설명</p>
-								<a href="#" class="btn btn-primary"
+								<p class="card-text">${vo.cl_content }</p>
+								<a href="/puzzle/1/main.do" class="btn btn-primary"
 									style="background-color: #3a65ef">퍼즐 참가하기</a>
 							</div>
 						</div>
@@ -208,7 +211,7 @@ a {text-decoration:none;}
 								<h5 class="card-title">동아리 이름</h5>
 								<br>
 								<p class="card-text">동아리 간단 설명</p>
-								<a href="#" class="btn btn-primary"
+								<a href="/puzzle/1/main.do" class="btn btn-primary"
 									style="background-color: #3a65ef">퍼즐 참가하기</a>
 							</div>
 						</div>
@@ -233,7 +236,7 @@ a {text-decoration:none;}
 								<h5 class="card-title">${vo.cl_name }</h5>
 								<br>
 								<p class="card-text">${vo.cl_content }</p>
-								<a href="#" class="btn btn-primary"
+								<a href="/puzzle/1/main.do" class="btn btn-primary"
 									style="background-color: #3a65ef">동아리 구경하기</a>
 							</div>
 						</div>
@@ -243,6 +246,7 @@ a {text-decoration:none;}
 				<img class="righter4" src="../resources/img/화살표2.png">
 			</div>
 		</div>
+		
 		
 		
 		
@@ -329,5 +333,7 @@ a {text-decoration:none;}
 		
 		
 	</section>
+	
+	
 </body>
 </html>

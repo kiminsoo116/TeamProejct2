@@ -2,11 +2,15 @@ package com.sist.mapper;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.web.context.request.SessionScope;
 
 import java.util.*;
 
+import javax.servlet.http.HttpSession;
 
 import com.sist.vo.clubVO;
+import com.sist.vo.clubgradeVO;
+import com.sist.vo.clubpuzzleVO;
 
 public interface clubMapper {
 	// Insert 동아리 생성
@@ -25,10 +29,23 @@ public interface clubMapper {
 			 +"WHERE cl_no=#{cl_no}")
 	  public clubVO clubMainData(int cl_no);
 	
-	 //3. 글쓰기 => 파일 업로드 
-
-	// 동아리 메인 정보 출력
+	  
+	@Select("SELECT * FROM (SELECT id,cl_no FROM grade WHERE id in(SELECT id FROM grade WHERE id=#{id1,jdbcType = VARCHAR})) v JOIN club ON v.cl_no=club.cl_no")
+	public List<clubgradeVO> clubgradeMainData(Map map);
+	
+	/*
+	 * @Select("SELECT * "
+	 * +"FROM (SELECT p_no,p_cost,p_head,p_loc,p_date,p_time,p_title,p_dloc,p_content "
+	 * +"FROM puzzle " +"WHERE p_date>SYSDATE order by 1 asc) " +"WHERE rownum<=12")
+	 * public List<clubpuzzleVO> clubpuzzleMainData();
+	 */
+	
+	@Select("SELECT * FROM (SELECT p_date,cl_no FROM puzzle WHERE p_date in(SELECT p_date FROM puzzle WHERE p_date>SYSDATE)) v JOIN club ON v.cl_no=club.cl_no")
+	public List<clubpuzzleVO> clubpuzzleMainData();
+	
 	@Select("SELECT * FROM CLUB WHERE cl_no=#{cl_no}")
 	public clubVO puzzleMainInfoData(int cl_no);
+	
+	
 	 
 }
