@@ -34,12 +34,12 @@
 										<button type="button" class="btn btn-primary" style="width: 100%;margin-top:20px" onclick="cancel()">가입취소</button>
 									</c:if>
 									<c:if test="${1<=grade && grade<4}">
-										<strong>${sessionScope.id}</strong>&nbsp;&nbsp;
-										<strong>${sessionScope.nic}</strong>&nbsp;&nbsp;
+										
+										<strong>${sessionScope.nic}</strong>&nbsp;(${sessionScope.id})
 										
 										<div>
-										<c:if test="${grade==1}">회장</c:if>
-										<c:if test="${grade==2}">운영진</c:if>
+										<c:if test="${grade==1}">★★회장</c:if>
+										<c:if test="${grade==2}">★운영진</c:if>
 										<c:if test="${grade==3}">회원</c:if>
 										</div>
 									</c:if>
