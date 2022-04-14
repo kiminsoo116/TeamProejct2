@@ -25,9 +25,7 @@ position: relative;
 top:150px;
 left:55px;
 }
-td{
-margin-top:0.5px;
-}
+
 
 </style>
 </head>
@@ -77,8 +75,8 @@ margin-top:0.5px;
 						<tbody>
 						<c:forEach var="vo" items="${ulist }">
 							<tr>
-								<td>${vo.id}</td>
-								<td>
+								<td style="font-size: 20px;">${vo.id}</td>
+								<td style="font-size: 20px;">
 								<c:if test="${vo.cl_rank==2 }">
 								운영진
 								</c:if>

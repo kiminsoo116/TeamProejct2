@@ -64,8 +64,8 @@ left:55px;
 						<tbody>
 						<c:forEach var="vo" items="${plist }">
 						<tr>
-				 		<td>${vo.id}</td>
-							<td>${vo.g_msg}</td>
+				 		<td style="font-size: 20px;">${vo.id}</td>
+							<td style="font-size: 20px;">${vo.g_msg}</td>
 							<td><a href="/puzzle/${cl}/puzzlemember/update_ok.do?id=${vo.id}" class="btn btn-primary" onclick="ok()">승인</a></td>
 							<td><a href="/puzzle/${cl}/puzzlemember/delete_ok.do?id=${vo.id}" class="btn btn-danger" onclick="no()">거절</a></td>
 						</tr> 

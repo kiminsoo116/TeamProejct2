@@ -87,5 +87,12 @@ public class BoardController {
 		return "redirect:/puzzle/"+cl+"/board/detail.do?id="+b_no;
 	}
 	
+	@GetMapping("delete.do")
+	public String delete(@PathVariable int cl, int id) {
+		board.delete(id);
+		
+		return "redirect:/puzzle/"+cl+"/board/list.do";
+	}
+	
 
 }

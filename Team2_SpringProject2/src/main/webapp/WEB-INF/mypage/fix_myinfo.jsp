@@ -103,7 +103,7 @@ width:0px;
 }
 .formposition{
 	position:absolute;
-	width:45%;
+	width:50%;
 	height:95%;
 	top:5%;
 	left:-4%;
@@ -115,7 +115,7 @@ width:0px;
 	position:relative;
 	left:50px;
 	margin:0px 0px;
-	width:470px;
+	width:500px;
 	height:500px;
 }
 .msgcss{
@@ -213,7 +213,7 @@ left:0px;
 		</div>
 		닉네임 <br> <input class="in"  type=text id="makingnic" size=40 v-model="makingnic" value="${vo.nic}" name="nic">
 		&nbsp;
-		<button type="button" id="nicCheck" value="닉네임중복체크" class="nicCheck" v-on:click="nicCheck()">닉네임중복체크</button>
+		<button type="button" id="nicCheck" value="닉네임중복체크" class="nicCheck" v-on:click="nicCheck()">중복체크</button>
 		<br>
 		<div class="linefix">
 		<br>

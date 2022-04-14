@@ -36,11 +36,12 @@
 									<c:if test="${1<=grade && grade<4}">
 										<span style="float: left;"><img src="/resources/img/profile.png" style="width:55px;height:55px;left:5px;"></span>
 										<span>
-										<strong>ID:</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${sessionScope.id}&nbsp;&nbsp;<br>
+										<strong>ID:</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${sessionScope.id}&nbsp;&nbsp;<br>
 										<strong>닉네임:</strong>&nbsp;&nbsp;&nbsp;&nbsp;${sessionScope.nic}&nbsp;&nbsp;
 										</span>
+										
 										<div>
-										<strong>등급:</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<strong>등급:</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<c:if test="${grade==1}">회장</c:if>
 										<c:if test="${grade==2}">운영진</c:if>
 										<c:if test="${grade==3}">회원</c:if>
