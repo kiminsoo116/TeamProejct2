@@ -160,14 +160,14 @@ color: #FFFFFF;
             <li class="list-first" v-for="(vo,index) in recipe_list" v-if="index%3==0"><img :src="vo.poster" :title="vo.title" class="list-img">
             	<p class="list-name">{{vo.title}}</p>
 	            <p>{{vo.content}}</p>
-	            <a href="/puzzle/${vo.cl_no }/main.do">
+	            <a v-on:click="link(vo.no)">
 	           <button class="list-li-button"><p class="list-li-name">퍼즐 참가하기</p></button>
 	           </a>
             </li>
             <li class="list-second" v-else><img :src="vo.poster" :title="vo.title" class="list-img">
             	<p class="list-name">{{vo.title}}</p>
 	            <p>{{vo.content}}</p>
-	            <a href="/puzzle/${vo.cl_no }/main.do">
+	            <a v-on:click="link(vo.no)">
 	            <button class="list-li-button"><p class="list-li-name">퍼즐 참가하기</p></button>
 	            </a>
 	            
@@ -235,6 +235,10 @@ color: #FFFFFF;
     		find:function(){
     			this.curpage=1;
     			this.recipeData();
+    		},
+    		link:function(no){
+    			this.no=no;
+    			location.href="/puzzle/"+no+"/main.do";
     		}
     	}
     	
