@@ -50,8 +50,8 @@ top:-5px;
 			style="border: 0.5px solid rgb(183, 181, 181)">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 				<div class="container-fluid">
-					<a class="navbar-brand" href="/main/main.do"> <img src="../resources/img/logo.png"
-						alt="" width="95" height="35"
+					<a class="navbar-brand" href="/main/main.do"> <img src="/resources/img/logo.png"
+						width="95" height="35"
 						class="logoM">
 					</a>
 					<button class="navbar-toggler" type="button"

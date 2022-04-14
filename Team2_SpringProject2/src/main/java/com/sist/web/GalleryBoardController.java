@@ -46,7 +46,7 @@ public class GalleryBoardController {
 		int grade = member.ismember(session, cl);
 		model.addAttribute("grade", grade);
 		model.addAttribute("cl", cl);
-		int cl_no = 1;
+		
 		if (page == null)
 			page = "1";
 		int curpage = Integer.parseInt(page);
@@ -57,7 +57,7 @@ public class GalleryBoardController {
 		Map map = new HashMap();
 		map.put("start", start);
 		map.put("end", end);
-		map.put("cl_no", cl_no);
+		map.put("cl_no", cl);
 
 		List<GalleryBoardVO> list = dao.galleryBoardListData(map);
 		int count = dao.galleryBoardRowCount();
@@ -99,10 +99,9 @@ public class GalleryBoardController {
 		model.addAttribute("grade", grade);
 		model.addAttribute("cl", cl);
 
-		int cl_no = 1;
 		String id = (String) session.getAttribute("id");
 
-		vo.setCl_no(cl_no);
+		vo.setCl_no(cl);
 		vo.setId(id);
 
 		List<MultipartFile> list = vo.getFiles();

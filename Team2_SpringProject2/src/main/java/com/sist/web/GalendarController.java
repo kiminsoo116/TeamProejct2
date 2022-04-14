@@ -45,7 +45,7 @@ public class GalendarController {
 
 		int cl_no = 1;
 
-		List<GalendarPuzzleVO> pList = dao.galendarListData(cl_no);
+		List<GalendarPuzzleVO> pList = dao.galendarListData(cl);
 
 		for (GalendarPuzzleVO vo : pList) {
 			SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-M-d");
@@ -128,7 +128,7 @@ public class GalendarController {
 
 		Map map = new HashMap();
 		map.put("p_no", p_no);
-		map.put("cl_no", cl_no);
+		map.put("cl_no", cl);
 
 		// 상세페이지
 		GalendarPuzzleVO pvo = dao.galendarDetailData(map);
@@ -139,11 +139,11 @@ public class GalendarController {
 		String dbdate = sdf.format(date);
 
 		// 지역 통계
-		List<String> wl = dao.galendarLoc(cl_no);
+		List<String> wl = dao.galendarLoc(cl);
 		List<KeywordVO> list = new ArrayList<KeywordVO>();
 		for (String s : wl) {
 			Map map2 = new HashMap();
-			map2.put("cl_no", cl_no);
+			map2.put("cl_no", cl);
 			map2.put("p_loc", s);
 			int count = dao.galendarCount(map2);
 
