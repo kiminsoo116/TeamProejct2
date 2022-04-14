@@ -1,11 +1,15 @@
 package com.sist.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import com.sist.vo.*;
-import com.sist.dao.*;
-import com.sist.mapper.*;
-import java.util.*;
+
+import com.sist.mapper.MyPageMapper;
+import com.sist.vo.MyPuzzleVO;
+import com.sist.vo.clubVO;
+import com.sist.vo.memberVO;
 
 @Repository
 public class MyPageDAO {
@@ -41,5 +45,9 @@ public class MyPageDAO {
 	//내가 가입한(만든)모임
 	public List<clubVO> myClubListData(String id){
 		return mapper.myClubListData(id);
+	}
+	
+	public List<MyPuzzleVO> myPuzzleListData(String id){
+		return mapper.myPuzzleListData(id);
 	}
 }

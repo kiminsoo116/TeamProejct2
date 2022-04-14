@@ -23,5 +23,5 @@ CL_NO	NUMBER
 public class GalendarPuzzleVO {
 	private int p_no, p_head, cl_no;
 	private Date p_date;
-	private String p_cost, p_loc, p_time, p_title, p_content, id, dbday;
+	private String p_cost, p_loc, p_time, p_title, p_content, id, dbday, p_dloc;
 }

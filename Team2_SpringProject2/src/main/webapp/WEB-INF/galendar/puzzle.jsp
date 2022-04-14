@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Insert title here</title>a
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
@@ -34,21 +34,23 @@
 			let h = $(this).attr("date-head");
 			console.log(pc); // 이상없음
 			console.log(n);
-			
-			if(pc>h) {
+
+			if (pc > h) {
 				alert("모집 정원 인원을 초과하였습니다. 다른 모임을 이용해주시길 바랍니다.");
 				return;
 			} else {
 				$.ajax({
-					type:'post',
-					url:'../galendar/puzzle_insert.do',
-					data:{"p_no":n},
-					success:function(res) {
-						if(res=="ON") {
+					type : 'post',
+					url : '../galendar/puzzle_insert.do',
+					data : {
+						"p_no" : n
+					},
+					success : function(res) {
+						if (res == "ON") {
 							alert("현재 선택한 모임에 가입된 상태입니다.");
 						} else {
 							alert("모임 가입이 완료되었습니다.");
-							location.href="list.do";
+							location.href = "list.do";
 						}
 					}
 				})
@@ -82,7 +84,7 @@
 			<div style="padding-top: 20px;"></div>
 			<div class="row">
 				<div class="col-sm-6" style="margin-left: 30px;">
-					<strong>모임 지역 :</strong> ${pvo.p_loc }
+					<strong>모임 지역 :</strong> [${pvo.p_loc }]&nbsp;${pvo.p_dloc }
 				</div>
 				<div class="col-sm-6" style="margin-left: -50px;">
 					<strong>모임 인원 :</strong> ${puzzlecount } / ${pvo.p_head }
@@ -110,8 +112,9 @@
 						style="white-space: pre-wrap; border: none; background-color: white; float: left; overflow: auto; height: 70px; width: 700px;">${pvo.p_content }</pre>
 				</div>
 				<div class="col-sm-2" style="margin-left: -30px; margin-top: 30px;">
-					<input type="button" class="btn btn-sm btn-primary pInsertBtn" value="신청하기"
-						data-cnt="${puzzlecount }" data-no="${pvo.p_no }" date-head="${pvo.p_head }">
+					<input type="button" class="btn btn-sm btn-primary pInsertBtn"
+						value="신청하기" data-cnt="${puzzlecount }" data-no="${pvo.p_no }"
+						date-head="${pvo.p_head }">
 				</div>
 			</div>
 		</div>

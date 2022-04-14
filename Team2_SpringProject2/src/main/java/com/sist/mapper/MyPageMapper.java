@@ -1,10 +1,13 @@
 package com.sist.mapper;
-import java.util.*;
-import com.sist.vo.*;
+import java.util.List;
+import java.util.Map;
 
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+
+import com.sist.vo.MyPuzzleVO;
+import com.sist.vo.clubVO;
+import com.sist.vo.memberVO;
 /*
  *  private String id;
 	private String pwd;
@@ -52,4 +55,9 @@ public interface MyPageMapper {
 			+ "WHERE id=#{id}")
 	public void myInfoUpdate(Map map);
 	
+	// 마이페이지 내가 가입한 모임 리스트 출력
+	@Select("SELECT * FROM (SELECT p_no,id "
+			+ "FROM puzzlejoin WHERE id in(SELECT id from puzzlejoin WHERE id=#{id})) v JOIN puzzle " 
+			+ "ON v.p_no=puzzle.p_no ORDER BY p_date asc")
+	public List<MyPuzzleVO> myPuzzleListData(String id);
 }

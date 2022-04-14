@@ -1,52 +1,60 @@
 package com.sist.web;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.sist.dao.*;
-import com.sist.vo.*;
-import com.sist.mapper.*;
-import java.util.*;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import com.sist.dao.MyPageDAO;
+import com.sist.vo.MyPuzzleVO;
+import com.sist.vo.clubVO;
+import com.sist.vo.memberVO;
 
 @Controller
 public class MyPageController {
 	@Autowired
 	private MyPageDAO dao;
-	
+
 	private HttpSession session;
-	
-	//마이페이지 이동
+
+	public void commonData(Model model, String id) {
+		List<clubVO> list = dao.myClubListData(id);
+		model.addAttribute("list", list);
+	}
+
+	// 마이페이지 이동
 	@GetMapping("mypage/mypage_go.do")
-	public String moveToMyPage(HttpSession session,Model model) {
-		this.session=session;
-		String id = (String)session.getAttribute("id");
+	public String moveToMyPage(HttpSession session, Model model) {
+		this.session = session;
+		String id = (String) session.getAttribute("id");
 		List<clubVO> list = dao.myClubListData(id);
 		System.out.println(list);
 		String category = dao.readMyFavCategory(id);
-		model.addAttribute("list",list);
-		model.addAttribute("category",category);
+		commonData(model, id);
+		model.addAttribute("category", category);
 //		memberVO vo = dao.readMyInfo(id);
 //		List<ClubVO> list = dao.myClubListData(id);
 //		model.addAttribute("nic",vo.getNic());
 //		model.addAttribute("list",list);
 		return "mypage";
 	}
-	//관심카테고리 이동
+
+	// 관심카테고리 이동
 	@GetMapping("mypage/mycategory_go.do")
-	public String moveToMyCategory(Model model,HttpSession session) {
-		this.session=session;
-		String id = (String)session.getAttribute("id");
+	public String moveToMyCategory(Model model, HttpSession session) {
+		this.session = session;
+		String id = (String) session.getAttribute("id");
 		List<clubVO> list = dao.myClubListData(id);
 		String category = dao.readMyFavCategory(id);
-		model.addAttribute("list",list);
-		model.addAttribute("category",category);
+		model.addAttribute("list", list);
+		model.addAttribute("category", category);
 //		List<ClubVO> vo = dao.myClubListData(id);
 //		model.addAttribute("vo",vo);
 //		String[]list = {"요리 / 제조","아웃도어 / 여행","운동 / 스포츠","인문학 / 책 / 글","업무 / 직무",
@@ -55,39 +63,53 @@ public class MyPageController {
 //		model.addAttribute("list",list);
 		return "mypage/mycategory";
 	}
-	//관심 카테고리 저장
-	
-	
-	//찜한동아리리스트 이동
+	// 관심 카테고리 저장
+
+	// 찜한동아리리스트 이동
 	@GetMapping("mypage/wishclub_go.do")
-	public String moveToWishClub() {
+	public String moveToWishClub(Model model, HttpSession session) {
+		this.session = session;
+		String id = (String) session.getAttribute("id");
+		commonData(model, id);
+
+		List<MyPuzzleVO> list2 = dao.myPuzzleListData(id);
+		for (MyPuzzleVO vo : list2) {
+			String title = vo.getP_title();
+			if (title.length() > 7) {
+				title = title.substring(0, 7) + "...";
+			}
+			vo.setP_title(title);
+
+			String loc = vo.getP_dloc();
+			if (loc.length() > 5) {
+				loc = loc.substring(0, 5) + "...";
+			}
+			vo.setP_dloc(loc);
+		}
+
+		model.addAttribute("list2", list2);
+
 		return "mypage/wish";
 	}
-	//내 정보 수정 이동
+
+	// 내 정보 수정 이동
 	@GetMapping("mypage/fixMyInfo_go.do")
-	public String moveToFixMyInfo(HttpSession session,Model model) {
-		this.session=session;
-		String id = (String)session.getAttribute("id");
+	public String moveToFixMyInfo(HttpSession session, Model model) {
+		this.session = session;
+		String id = (String) session.getAttribute("id");
 		memberVO vo = dao.readMyInfo(id);
-		List<clubVO> list = dao.myClubListData(id);
-		System.out.println(list);
+		commonData(model, id);
+
 		String category = dao.readMyFavCategory(id);
-		model.addAttribute("list",list);
-		model.addAttribute("category",category);
+
+		model.addAttribute("category", category);
 		/*
-		 * obj.put("id", vo.getId());
-		obj.put("pwd", vo.getPwd());
-		obj.put("nic", vo.getNic());
-		obj.put("name",vo.getName());
-		obj.put("addr1", vo.getAddr1());
-		obj.put("addr2", vo.getAddr2());
-		obj.put("email", vo.getEmail());
-		obj.put("tel", vo.getTel());
-		obj.put("sex", vo.getSex());
-		obj.put("post", vo.getPost());
-		obj.put("birth", vo.getBirth());
-		obj.put("category", vo.getCategory());
-		obj.put("admin", vo.getAdmin());
+		 * obj.put("id", vo.getId()); obj.put("pwd", vo.getPwd()); obj.put("nic",
+		 * vo.getNic()); obj.put("name",vo.getName()); obj.put("addr1", vo.getAddr1());
+		 * obj.put("addr2", vo.getAddr2()); obj.put("email", vo.getEmail());
+		 * obj.put("tel", vo.getTel()); obj.put("sex", vo.getSex()); obj.put("post",
+		 * vo.getPost()); obj.put("birth", vo.getBirth()); obj.put("category",
+		 * vo.getCategory()); obj.put("admin", vo.getAdmin());
 		 */
 //		model.addAttribute("id",vo.getId());
 //		model.addAttribute("pwd", vo.getPwd());
@@ -102,27 +124,31 @@ public class MyPageController {
 //		model.addAttribute("birth", vo.getBirth());
 //		model.addAttribute("category", vo.getCategory());
 //		model.addAttribute("admin", vo.getAdmin());
-		model.addAttribute("vo",vo);
+		model.addAttribute("vo", vo);
 		return "mypage/fix_myinfo";
-	}	
-	
-	//개인정보 읽기 이동
+	}
+
+	// 개인정보 읽기 이동
 	@GetMapping("mypage/myInfo.do")
 	public String readMyInfo(String id, Model model) {
 		memberVO vo = dao.readMyInfo(id);
-		model.addAttribute("vo",vo);
+		commonData(model, id);
+		model.addAttribute("vo", vo);
 		return "mypage/fix_myinfo";
 	}
-	//수정개인정보 서브밋
+
+	// 수정개인정보 서브밋
 	@PostMapping("mypage/myInfoUpdate.do")
-	public String UpdateMyInfo (memberVO vo) {
+	public String UpdateMyInfo(memberVO vo, Model model, HttpSession session) {
 		System.out.println("ddddddd");
-		System.out.println("rrr"+vo.getId());
+		System.out.println("rrr" + vo.getId());
+		String id = (String) session.getAttribute("id");
+		commonData(model, id);
 		Map map = new HashMap();
 		map.put("id", vo.getId());
 		map.put("pwd", vo.getPwd());
 		map.put("nic", vo.getNic());
-		map.put("name",vo.getName());
+		map.put("name", vo.getName());
 		map.put("addr1", vo.getAddr1());
 		map.put("addr2", vo.getAddr2());
 		map.put("email", vo.getEmail());
@@ -133,9 +159,8 @@ public class MyPageController {
 		map.put("category", vo.getCategory());
 		map.put("admin", vo.getAdmin());
 		dao.changeMyInfo(map);
-		return "redirect:/mypage/myInfo.do?id="+vo.getId();
+		return "redirect:/mypage/myInfo.do?id=" + vo.getId();
 	}
-	
 
 //	//관심 카테고리 저장
 //	@GetMapping(value="mypage/favCategory.do",produces = "text/plain;charset=utf-8")
@@ -145,7 +170,7 @@ public class MyPageController {
 //		dao.InsertFavCategory(category,id);
 //		return "redirect:../mypage/mycategory_go.do";		
 //	}
-	
+
 //	//찜한 모임
 //	@GetMapping("mypage/wishClub.do")
 //	public String myWishClub(String id,Model model){
