@@ -50,7 +50,7 @@ public class CreateController {
 			  // SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 			//   vo.setP_date(sdf.parse(vo.getDb_day()));
 			   vo.setId(id);
-			   vo.setCl_no(11);
+			   vo.setCl_no(cl);
 			   dao.puzzle_create(vo);
 			   
 			   

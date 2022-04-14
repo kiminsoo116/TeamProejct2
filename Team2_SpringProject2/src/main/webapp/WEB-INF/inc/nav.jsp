@@ -84,8 +84,7 @@ top:-5px;
 									<li><a class="dropdown-item" href="/category/gamelist.do">게임 / 오락</a></li>
 									<li><a class="dropdown-item" href="/category/petlist.do">반려동물</a></li>
 								</ul></li>
-							<li class="nav-item"><a class="nav-link" href="#">동아리</a></li>
-							<li class="nav-item"><a class="nav-link" href="#">모임</a></li>
+							<li class="nav-item"><a class="nav-link" href="/mainboard/main_go.do">공지사항&nbsp;/&nbsp;QnA</a></li>
 							<!-- <li class="nav-item"><a class="nav-link" href="/mainboard/main_go.do">공지사항/QnA</a></li> -->
 						</ul>
 						<div class="d-flex" style="width:25vw">

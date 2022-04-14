@@ -43,7 +43,6 @@ public class GalendarController {
 		String strMonth = request.getParameter("month");
 		String strDay = request.getParameter("day");
 
-		int cl_no = 1;
 
 		List<GalendarPuzzleVO> pList = dao.galendarListData(cl);
 

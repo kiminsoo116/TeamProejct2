@@ -20,7 +20,7 @@
         <c:forEach var="b" items="${list}">
         <tr style="text-align:center;">
             <th scope="row">${b.b_no }</th>
-            <td><a href="detail.do?id=${b.b_no}" style="text-decoration: none;color:black;">${b.b_title}</a>&nbsp;<span style="color:#dddddd;"><c:if test="${b.replycnt>0}">[${b.replycnt}]</c:if></span></td>
+            <td><a href="detail.do?id=${b.b_no}" style="text-decoration: none;color:black;">${b.b_title}</a>&nbsp;<span style="color:red;"><c:if test="${b.replycnt>0}">[${b.replycnt}]</c:if></span></td>
             <td>${b.id}</td>
             <td><fmt:formatDate value="${b.b_regdate}" pattern="yyyy-MM-dd"/></td>
             <td>${b.b_hit}</td>
