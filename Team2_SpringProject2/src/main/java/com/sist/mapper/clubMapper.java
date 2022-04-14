@@ -18,7 +18,7 @@ public interface clubMapper {
 	public void clubInsert(clubVO vo);
 	
 	// Insert 회원등급 생성
-	@Insert("INSERT INTO grade VALUES(1,#{id},#{cl_no})")
+	@Insert("INSERT INTO grade VALUES(1,#{id},#{cl_no},#{g_msg})")
 	public void gradeInsert(Map map);
 	
 	@Select("SELECT MAX(cl_no) FROM CLUB")

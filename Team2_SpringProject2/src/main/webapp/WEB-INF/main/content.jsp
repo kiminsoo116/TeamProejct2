@@ -197,29 +197,7 @@ a {text-decoration:none;}
 			</div>
 		</div>
 
-		<div class="row1">
-			<h3 class="title1">
-				<strong>인기 퍼즐</strong>
-			</h3>
-			<div class="box3">
-				<img class="lefter3" src="../resources/img/화살표.png">
-				<div class="overflow3">
-					<c:forEach begin="1" end="12" step="1">
-						<div class="oneRank3">
-							<img src="../resources/img/poster2.png" class="card-img-top">
-							<div class="card-body">
-								<h5 class="card-title">동아리 이름</h5>
-								<br>
-								<p class="card-text">동아리 간단 설명</p>
-								<a href="/puzzle/${vo.cl_no }/main.do" class="btn btn-primary"
-									style="background-color: #3a65ef">퍼즐 참가하기</a>
-							</div>
-						</div>
-					</c:forEach>
-				</div>
-				<img class="righter3" src="../resources/img/화살표2.png">
-			</div>
-		</div>
+		
 
 		<div class="row1">
 			<h3 class="title1">

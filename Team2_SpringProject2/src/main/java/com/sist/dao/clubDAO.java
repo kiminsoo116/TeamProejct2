@@ -30,6 +30,7 @@ public class clubDAO {
 		Map map=new HashMap ();
 		map.put("id", id);
 		map.put("cl_no",cl_no);
+		map.put("g_msg", "");
 		mapper.gradeInsert(map);
 		
 	}

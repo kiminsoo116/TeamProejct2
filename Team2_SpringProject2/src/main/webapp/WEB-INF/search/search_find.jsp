@@ -83,7 +83,7 @@ display: flex;
 align-items: flex-end;
 
 color: #f57243;
-left: 980px;
+left: 960px;
 top: 117px;
 position: relative;
 
@@ -338,7 +338,7 @@ position: absolute;
 			           <p class="search-li-name">${vo.cl_name}</p>
 			            <p class="search-li-p">${vo.cl_content}</p>
 			            
-			            <a href="/puzzle/1/main.do">
+			            <a href="/puzzle/${vo.cl_no }/main.do">
 			            <button class="search-li-button" >동아리 가입하기</button>
 			            </a>
 		            
@@ -352,7 +352,7 @@ position: absolute;
 		             <p class="search-li-name">${vo.cl_name}</p>
 		             <p class="search-li-p">${vo.cl_content}</p>
 		             
-			            <a href="/puzzle/1/main.do">
+			            <a href="/puzzle/${vo.cl_no }/main.do">
 			            <button class="search-li-button" >동아리 가입하기</button>
 			            </a>
 			            

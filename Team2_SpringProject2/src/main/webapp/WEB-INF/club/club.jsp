@@ -678,7 +678,26 @@ new Vue({
 	},
 	methods:{
 		makeclub:function(){
-			
+			if(this.cl_category==''){
+				alert('카테고리를 입력해주세요!')
+				this.focus();
+			}
+			if(this.cl_loc==''){
+				alert('지역을 입력해 주세요!')
+				this.focus();
+			}
+			if(this.cl_name==''){
+				alert('동아리 이름을 입력해주세요!')
+				this.focus();
+			}
+			if(this.cl_content==''){
+				alert('간단한 소개 부탁드려요~!')
+				this.focus();
+			}
+			if(this.cl_poster==''){
+				alert('동아리에 맞는 테마를 설정해주세요!')
+				this.focus();
+			}
 			axios.get('/club/club_Insert.do',{
 				params:{
 					cl_category:this.cl_category,
