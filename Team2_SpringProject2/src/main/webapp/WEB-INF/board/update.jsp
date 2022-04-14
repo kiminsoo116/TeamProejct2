@@ -3,7 +3,7 @@
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"
 		style="margin-top: 20px;">
     <br>
-    <form id="updateform" method="post" action="doupdate.do">
+    <form id="updateform" method="post" action="./doupdate.do">
     <input type="hidden" name="b_no" value="${detail.b_no}"/>
         <div class="mb-3">
             <label for="nTitle" class="form-label">제목</label>

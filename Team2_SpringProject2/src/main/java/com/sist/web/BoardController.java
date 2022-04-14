@@ -53,7 +53,7 @@ public class BoardController {
 		m.addAttribute("grade",grade);
 		m.addAttribute("cl",cl);
 		board.dowrite(b_title,b_content,session,cl);
-		return "redirect:../board/list.do";
+		return "redirect:/puzzle/"+cl+"/board/list.do";
 	}
 	
 	@GetMapping("detail.do")
@@ -84,7 +84,7 @@ public class BoardController {
 		m.addAttribute("grade",grade);
 		m.addAttribute("cl",cl);
 		
-		return "redirect:puzzle/{cl}/board/detail.do?id="+b_no;
+		return "redirect:/puzzle/"+cl+"/board/detail.do?id="+b_no;
 	}
 	
 

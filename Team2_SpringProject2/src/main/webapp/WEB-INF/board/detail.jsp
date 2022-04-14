@@ -72,9 +72,10 @@ $(document).ready(function(){
     </table>
    
     <button type="button" class="btn btn-secondary" onclick="history.back()">목록</button>
-    <!-- if문 줘야함  -->
+    <c:if test="${detail.id==sessionScope.id}">
     <a href="delete.do?id=${b_no}"><button type="button" class="btn btn-secondary" style="float: right;">삭제</button></a>
     <a href="update.do?id=${b_no}"><button type="button" class="btn btn-secondary" style="margin-right: 10px; float: right;">수정</button></a>
+    </c:if>
 </main>
 <script>
 function getReplyList(){
@@ -121,8 +122,14 @@ function toHtml(replys){
 		tmp+='<td class="col-9" style="padding-left:60px;">'+reply.r_msg+'</td>';
 		tmp+='<td class="col-1">'+reply.id+'</td>';
 		tmp+='<td class="col-1">'+reply.r_regDate+'</td>';
+		tmp+='<c:if test="${detail.id==sessionScope.id}">';
 		tmp+='<td style="text-align: right; padding-right:20px;"><a id="updatereply" name="'+reply.r_no+'" value="'+reply.r_msg+'" href="javascript:void(0);" style="text-decoration:none; color:gray;">수정</a></td>';
 		tmp+='<td style="text-align: right; padding-right:20px;"><a id="deletereply" onclick="delreply('+reply.r_no+');" href="javascript:void(0);" style="text-decoration:none; color:gray;">삭제</a></td>';
+		tmp+='</c:if>';
+		tmp+='<c:if test="${detail.id!=sessionScope.id}">';
+		tmp+='<td></td>';
+		tmp+='<td></td>';
+		tmp+='</c:if>';
 		tmp+='</tr>';
 	})
 	return tmp;
