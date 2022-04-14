@@ -11,6 +11,11 @@ public class MainMainDAO {
 	@Autowired
 	private MainMainMapper mapper;
 	
+	public int countMyCategory(String id) {
+		int num = mapper.countMyCategory(id);
+		return num;
+	}
+	
 	public String callMyCategory(String id) {
 		String category = mapper.callMyCategory(id);
 		return category;

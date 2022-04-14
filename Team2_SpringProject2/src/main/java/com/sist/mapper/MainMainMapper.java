@@ -9,6 +9,10 @@ public interface MainMainMapper {
 	@Insert("INSERT INTO wish(w_no,cl_no,id) VALUES(#{w_no},#{cl_no},#{id}")
 	public void InsertWishClub(Map map);
 	
+	//관심카테고리 숫자
+	@Select("SELECT COUNT(category) FROM member WHERE id=#{id}")
+	public int countMyCategory(String id);
+	
 	//관심카테고리 불러오기
 	@Select("SELECT category FROM member WHERE id=#{id}")
 	public String callMyCategory(String id);

@@ -263,45 +263,45 @@ viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
 			<input type="radio" name="slider" id="s3" checked> 
 			<input type="radio" name="slider" id="s4"> 
 			<input type="radio" name="slider" id="s5"> 
-			<c:if test="${sessionScope.id!=null }">
+			<%-- <c:if test="${sessionScope.id!=null }"> --%>
 			<label for="s1" id="slide1">
 				<img class="recClubpic" src="${vo1.cl_poster }">
 				<div class="recName">${vo1.cl_name }</div>
-				<button class="recBtn"><a href="/puzzle/${cl_no}/main.do">둘러보기</a></button>
+				<button class="recBtn"><a href="/puzzle/${vo1.cl_no}/main.do">둘러보기</a></button>
 				<div class="recInfo">${vo1.cl_loc }&nbsp;&nbsp;|&nbsp;&nbsp;${vo1.cl_head }명</div>
 				<div class="recCate">${vo1.cl_category }</div>
 			</label> 
 			<label for="s2" id="slide2">
 				<img class="recClubpic"  src="${vo2.cl_poster }">
 				<div class="recName">${vo2.cl_name }</div>
-				<button class="recBtn"><a href="/puzzle/${cl_no}/main.do">둘러보기</a></button>
+				<button class="recBtn"><a href="/puzzle/${vo2.cl_no}/main.do">둘러보기</a></button>
 				<div class="recInfo">${vo2.cl_loc }&nbsp;&nbsp;|&nbsp;&nbsp;${vo2.cl_head }명</div>
 				<div class="recCate">${vo2.cl_category }</div>
 			</label> 
 			<label for="s3" id="slide3">
 				<img class="recClubpic"  src="${vo3.cl_poster }">
 				<div class="recName">${vo3.cl_name }</div>
-				<button class="recBtn"><a href="/puzzle/${cl_no}/main.do">둘러보기</a></button>
+				<button class="recBtn"><a href="/puzzle/${vo3.cl_no}/main.do">둘러보기</a></button>
 				<div class="recInfo">${vo3.cl_loc }&nbsp;&nbsp;|&nbsp;&nbsp;${vo3.cl_head }명</div>
 				<div class="recCate">${vo3.cl_category }</div>
 			</label> 
 			<label for="s4" id="slide4">
 				<img class="recClubpic"  src="${vo4.cl_poster }">
 				<div class="recName">${vo4.cl_name }</div>
-				<button class="recBtn"><a href="/puzzle/${cl_no}/main.do">둘러보기</a></button>
+				<button class="recBtn"><a href="/puzzle/${vo4.cl_no}/main.do">둘러보기</a></button>
 				<div class="recInfo">${vo4.cl_loc }&nbsp;&nbsp;|&nbsp;&nbsp;${vo4.cl_head }명</div>
 				<div class="recCate">${vo4.cl_category }</div>
 			</label> 
 			<label for="s5" id="slide5">
 				<img class="recClubpic"  src="${vo5.cl_poster }">
 				<div class="recName">${vo5.cl_name }</div>
-				<button class="recBtn"><a href="/puzzle/${cl_no}/main.do">둘러보기</a></button>
+				<button class="recBtn"><a href="/puzzle/${vo5.cl_no}/main.do">둘러보기</a></button>
 				<div class="recInfo">${vo5.cl_loc }&nbsp;&nbsp;|&nbsp;&nbsp;${vo5.cl_head }명</div>
 				<div class="recCate">${vo5.cl_category }</div>
 			</label>
-			</c:if>
+			<%-- </c:if> --%>
 			
-			<c:if test="${sessionScope.id==null }">
+			<%-- <c:if test="${sessionScope.id==null }">
 			 <label for="s1" id="slide1">
 				<img class="recClubpic" src="${vo_1.cl_poster }">
 				<div class="recName">${vo_1.cl_name }</div>
@@ -337,7 +337,7 @@ viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
 				<div class="recInfo">${vo_5.cl_loc }&nbsp;&nbsp;|&nbsp;&nbsp;${vo_5.cl_head }명</div>
 				<div class="recCate">${vo_5.cl_category }</div>
 			</label>
-			</c:if>
+			</c:if> --%>
 		</section>
 		</div>
 	</div>

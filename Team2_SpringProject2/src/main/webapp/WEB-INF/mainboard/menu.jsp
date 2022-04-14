@@ -12,7 +12,7 @@
 position:absolute;
 top:370px;
 left:4%;
-width:200px;
+width:230px;
 height:300px;
 }
 h4{
@@ -88,22 +88,20 @@ font-weight: 700;
 	<h4>공지 및 질문 게시판</h4><div class="brfix"><br></div>
 	
 	<button class="writeBtn">
-	<c:if test="${sessionScope!='null' }">
+	<c:if test="${sessionScope.id!=null }">
 	<a href="../mainboard/insert_go.do">
 	</c:if>
-	<c:if test="${sessionScope=='null' }">
+	<c:if test="${sessionScope.id==null }">
 	<a href="../member/log_in_move.do">
 	</c:if>
 	글쓰기</a></button><div class="brfix"><br></div>
 	<button class="allBtn"><a href="../mainboard/main_go.do">전체 글 보기</a></button><div class="brfix"><br></div>
+	<c:if test="${sessionScope.id!=null }">
 	<button class="mineBtn">
-	<c:if test="${sessionScope!='null' }">
 	<a href="../mainboard/myBoard_go.do">
-	</c:if>
-	<c:if test="${sessionScope=='null' }">
-	<a href="../member/log_in_move.do">
-	</c:if>
 	내가 쓴 글 보기</a></button><div class="brfix"><br></div>
+	</c:if>
+	
 
 </div>
 </div>

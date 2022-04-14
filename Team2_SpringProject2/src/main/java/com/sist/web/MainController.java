@@ -51,41 +51,55 @@ public class MainController {
 		clubVO vo_3=dao2.mainMovingClub3();
 		clubVO vo_4=dao2.mainMovingClub4();
 		clubVO vo_5=dao2.mainMovingClub5();
-		
-		if(session.getAttribute("id")!=null) {
+
 		String id = (String)session.getAttribute("id");
-		String category = dao2.callMyCategory(id);
-		System.out.println(category);
-		StringTokenizer st = new StringTokenizer(category,",");
-		clubVO vo1 = dao2.recommendClub1(st.nextToken());
-		clubVO vo2 = dao2.recommendClub1(st.nextToken());
-		clubVO vo3 = dao2.recommendClub1(st.nextToken());
-		clubVO vo4 = dao2.recommendClub1(st.nextToken());
-		clubVO vo5 = dao2.recommendClub1(st.nextToken());
-		System.out.println(vo1);
-		System.out.println(vo2);
-		System.out.println(vo3);
-		System.out.println(vo4);
-		System.out.println(vo5);
 		
-		model.addAttribute("vo1",vo1);
-		model.addAttribute("vo2",vo2);
-		model.addAttribute("vo3",vo3);
-		model.addAttribute("vo4",vo4);
-		model.addAttribute("vo5",vo5);
+		
+		if(id==null) {
+			
+			model.addAttribute("vo1",vo_1);
+			model.addAttribute("vo2",vo_2);
+			model.addAttribute("vo3",vo_3);
+			model.addAttribute("vo4",vo_4);
+			model.addAttribute("vo5",vo_5);
+			System.out.println(vo_1.getCl_no());
+			
 		}
 		
-		
-		
-		model.addAttribute("vo_1",vo_1);
-		model.addAttribute("vo_2",vo_2);
-		model.addAttribute("vo_3",vo_3);
-		model.addAttribute("vo_4",vo_4);
-		model.addAttribute("vo_5",vo_5);
-		
-		
-		
-		model.addAttribute("list", list);
+		else {
+			if(dao2.countMyCategory(id)==0) {
+			
+			model.addAttribute("vo1",vo_1);
+			model.addAttribute("vo2",vo_2);
+			model.addAttribute("vo3",vo_3);
+			model.addAttribute("vo4",vo_4);
+			model.addAttribute("vo5",vo_5);
+			System.out.println(vo_1.getCl_no());
+			}
+			else if(dao2.countMyCategory(id)==1) {
+				String category = dao2.callMyCategory(id);
+				category.replaceAll(" ", "");
+				System.out.println(category);
+				StringTokenizer st = new StringTokenizer(category,",");
+				clubVO vo1 = dao2.recommendClub1(st.nextToken());
+				clubVO vo2 = dao2.recommendClub1(st.nextToken());
+				clubVO vo3 = dao2.recommendClub1(st.nextToken());
+				clubVO vo4 = dao2.recommendClub1(st.nextToken());
+				clubVO vo5 = dao2.recommendClub1(st.nextToken());
+				System.out.println(vo1);
+				System.out.println(vo2);
+				System.out.println(vo3);
+				System.out.println(vo4);
+				System.out.println(vo5);
+				
+				model.addAttribute("vo1",vo1);
+				model.addAttribute("vo2",vo2);
+				model.addAttribute("vo3",vo3);
+				model.addAttribute("vo4",vo4);
+				model.addAttribute("vo5",vo5);
+			}
+			
+		}
 		
 		return "main";
 	}
