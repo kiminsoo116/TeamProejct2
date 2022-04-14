@@ -2,6 +2,7 @@ package com.sist.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -29,6 +30,9 @@ public interface BoardMapper {
 
 	@Update("UPDATE board set b_hit=b_hit+1 WHERE b_no=#{b_no}")
 	public void uphit(int b_no);
+
+	@Delete("delete from board where b_no=#{b_no}")
+	public void delete(int b_no);
 
 }
  

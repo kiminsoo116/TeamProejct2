@@ -37,5 +37,8 @@ public class BoardDAO {
 	public void uphit(int b_no) {
 		board.uphit(b_no);
 	}
+	public void delete(int id) {
+		board.delete(id);
+	}
 
 }
