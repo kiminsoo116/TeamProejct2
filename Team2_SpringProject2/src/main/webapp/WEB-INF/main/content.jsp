@@ -162,7 +162,7 @@ a {text-decoration:none;}
 								<h5 class="card-title">${vo.cl_name }</h5>
 								<br>
 								<p class="card-text">${vo.cl_content }</p>
-								<a href="/puzzle/1/main.do" class="btn btn-primary"
+								<a href="/puzzle/${vo.cl_no }/main.do" class="btn btn-primary"
 									style="background-color: #3a65ef">퍼즐 참가하기</a>
 							</div>
 						</div>
@@ -187,7 +187,7 @@ a {text-decoration:none;}
 								<h5 class="card-title">${vo.cl_name }</h5>
 								<br>
 								<p class="card-text">${vo.cl_content }</p>
-								<a href="/puzzle/1/main.do" class="btn btn-primary"
+								<a href="/puzzle/${vo.cl_no }/main.do" class="btn btn-primary"
 									style="background-color: #3a65ef">퍼즐 참가하기</a>
 							</div>
 						</div>
@@ -211,7 +211,7 @@ a {text-decoration:none;}
 								<h5 class="card-title">동아리 이름</h5>
 								<br>
 								<p class="card-text">동아리 간단 설명</p>
-								<a href="/puzzle/1/main.do" class="btn btn-primary"
+								<a href="/puzzle/${vo.cl_no }/main.do" class="btn btn-primary"
 									style="background-color: #3a65ef">퍼즐 참가하기</a>
 							</div>
 						</div>
@@ -236,7 +236,7 @@ a {text-decoration:none;}
 								<h5 class="card-title">${vo.cl_name }</h5>
 								<br>
 								<p class="card-text">${vo.cl_content }</p>
-								<a href="/puzzle/1/main.do" class="btn btn-primary"
+								<a href="/puzzle/${vo.cl_no }/main.do" class="btn btn-primary"
 									style="background-color: #3a65ef">동아리 구경하기</a>
 							</div>
 						</div>

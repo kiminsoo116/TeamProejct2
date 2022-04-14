@@ -25,7 +25,7 @@
 		</div>
 		<div style="margin-top: 20px;"></div>
 		<div class="row">
-			<div class="col-md-5" style="height: 350px; width:760px; padding:20px; border: 2px solid #fdbe51;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);border-radius: 10px;">
+			<div class="col-md-5" style="height: 350px; width:750px; padding:20px; border: 2px solid #fdbe51;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);border-radius: 10px;">
 				<div>
 					<div>
 						<h4>동아리 모임 일정</h4>
@@ -64,7 +64,7 @@
 				</div>
 			</div>
 			<div style="width: 30px;"></div>
-			<div class="col-md-5" style="height: 350px; width:760px; padding:20px; border: 2px solid #fdbe51;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);border-radius: 10px;">
+			<div class="col-md-5" style="height: 350px; width:750px; padding:20px; border: 2px solid #fdbe51;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);border-radius: 10px;">
 				<div>
 					<div>
 						<h4>동아리 게시판</h4>
@@ -121,7 +121,7 @@
 								<c:if test="${i.index<5 }">
 								<tr style="display: inline;">
 									<td class="text-center">
-										<img src="${img }" style="width: 280px;height: 250px;">
+										<img src="${img }" style="width: 270px;height: 250px;">
 									</td>
 								</tr>
 								</c:if>
